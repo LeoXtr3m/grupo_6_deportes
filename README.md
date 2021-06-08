@@ -26,4 +26,5 @@ La pagina estara enfocada en los cuatro deportes mas populares en el mundo (futb
      
      ● Por las funcionalidades implementadas. 
          1.- https://www.mercadolibre.com.mx/
+         2.- https://www.shein.com
      
