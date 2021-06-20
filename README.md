@@ -28,3 +28,6 @@ La pagina estara enfocada en los cuatro deportes mas populares en el mundo (futb
          1.- https://www.mercadolibre.com.mx/
          2.- https://www.shein.com
      
+# 4. Tablero 
+ Se realizo un tablero en trello el cual se muestra a contiinuacion.
+    https://trello.com/invite/b/LqCb6RVy/cfedea52a7b3ae10d5a625b9984b3ca1/full-stack

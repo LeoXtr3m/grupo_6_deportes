@@ -1,0 +1,23 @@
+{
+  "name": "jal-sport",
+  "version": "1.0.0",
+  "description": "Proyecto final de DH, consta de una proyecto web que sera una pagina de deporte, donde se vende articulos.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoXtr3m/grupo_6_deportes.git"
+  },
+  "author": "Equipo 6 conformado por Adarely Leoncio Jorge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoXtr3m/grupo_6_deportes/issues"
+  },
+  "homepage": "https://github.com/LeoXtr3m/grupo_6_deportes#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
