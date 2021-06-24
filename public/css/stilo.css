@@ -1,0 +1,133 @@
+.articulos{
+    background-color: #f8f8ff;
+    padding: 1%;  
+    opacity: 100%;
+    
+   
+}
+
+section.articulos{
+    margin: 30px;
+    justify-content: start;
+    text-align: start;
+    font-size: 18px;
+    font-style: unset;
+    color: black;
+   
+    
+    box-shadow: 0px 0px 10px 5px #909090 ;
+    
+}
+.detalles{
+    background-color: #f8f8ff;
+    margin: 30px;
+    width: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 5px #909090 ;
+}
+
+
+.des{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 50px;
+    border-width: 10px;
+}
+
+.in{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-right: 50px;
+    
+}
+.in img{
+    width: 80px;
+    height: auto;
+    border-color: black;
+}
+
+.precio{
+padding-left: 150px;
+}
+.total{
+    padding-right: 90px;
+}
+.centro{
+    margin: 20px;
+    padding-bottom: 80px;
+    padding-top: -30px;
+
+}
+input{
+  padding-left: 50px;
+  text-align: center;
+  width: 150px;
+   background-color: aliceblue;
+   border-radius: 5px;
+   box-shadow: 0px 3px 0px black; 
+   box-shadow: 0px 0px 10px 5px #909090 ;
+   border-radius: 25px;
+}
+
+.ultimo{
+    padding-left: 15px;
+    background-color:#f8f8ff;
+    margin: 30px;
+    width: 520px;
+    height: auto;
+    position: relative;
+    left: 400px;
+    text-align: start;
+    font-size: 30px;
+    padding-bottom: 30px;
+    box-shadow: 0px 0px 10px 5px #909090 ;
+    
+}
+.ult{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 20;
+    text-align: center;
+    padding-top: 30px;
+    text-align: center;
+    
+    
+
+}
+.tl{
+    padding-right: 50px;
+}
+.btPagar input {
+    text-align: center;
+    width: 100px;
+    height: auto;
+    padding-top: 5px;
+    padding-right: 20px;
+height: 40px;
+width: 150px;
+font-size: 20px;
+display: flex;
+justify-content: center;
+padding-bottom: 15px;
+text-align: start;
+color: black;
+background-color: gray;
+padding-left: 10px;
+opacity: 50%;
+}
+.btPagar{
+    padding-right: 20px;
+}
+
+
+
+
+

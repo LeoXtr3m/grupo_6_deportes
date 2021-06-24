@@ -1,0 +1,128 @@
+:root {
+    --color-base: #F8F8FF;
+    --font-base: 'Roboto';
+    --color-secundario :#e6e6ee;
+}
+
+body {
+    color: black;
+    background-color: var(--color-secundario);
+    font-family: var(--font-base);
+}
+
+main {
+    background-color: var(--color-base);
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+main.m1 {
+    width: 400px;
+    height: 450px;
+}
+
+main.m2 {
+    width: 600px;
+    height: 500px;
+}
+
+.login, .register {
+    display: flex;
+    padding-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    font-size: 23px;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    padding-top: 40px;
+}
+
+form input.formu {
+    width: 80%;
+    font-weight: 600;
+    font-size: 14px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 27px;
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form input:focus {
+    border: 2px solid rgba(0, 0, 0, 0.18);
+}
+
+.sesion, .olvido, .genero, .inicio{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: black;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.inicio {
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+
+a {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color:rgb(77, 72, 72);
+    text-decoration: none;  
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
+    background: var(--color-secundario);
+    border: 0;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);;
+    padding: 10px 40px 10px 40px;
+    margin-left: 5%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.form1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.m2 button{
+    margin-left: 38%;
+}
+
+@media (max-width: 375px) {
+    main {
+        border-radius: 0px;
+        margin: 10px auto;
+    }
+    main.m1 {
+        width: auto;
+    }
+    main.m2 {
+        width: auto;
+        height: 650px;
+    }
+    .form1 {
+        flex-direction: column;
+    }
+    .m2 button{
+        margin-left: 28%;
+    }
+}
