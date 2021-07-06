@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<head>       
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Deportes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- pagina de estilos recomendada en el Ejercicio -->
+     
+    <link rel="preconnect" href="https://fonts.gstatic.com">   <!-- Documentos de estilo de letra ROBOTO -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/styles.css">  <!-- Para mandar llamar al archivo css general que usaremos-->
+    <link rel="stylesheet" href="/css/prducto.css">
+    <title>Document</title>
+
+    
+</head>
+<body>
+
+    <%- include('./partials/header') %>
+    
+  <main> 
+      <section class="s1">
+      <div class="principal">
+          <div class="imgch">
+            <img class src="images/teni_nike_2.png">
+          </div>
+          
+          <div class="imgg">
+            <img class src="images/teni_nike_2.png">
+          </div>
+          <div class="contenido1">
+              <p>Nombre del producto</p>
+              <p class="categoria">Categoria</p>
+              <p class="precio">$Precio</p>
+              <br>
+              <div class="contenido2">
+                <h5>Talla</h5>
+                <br>
+                <div class="alinear">
+                <input  type="button" value="CH">
+                <input  type="button" value="M">
+                <input  type="button" value="G">
+            </div>
+                <br>
+                <input class="btn" type="button" value="Añadir al carrito">
+            
+        
+            </div>
+
+          </div>
+      </div>
+     
+    </section>
+      <section></section>
+      <div class="Descripcion">
+          <h3 id="d">Descripcion  <i class="fas fa-plus-circle"></i></h3>
+         
+
+      </div>
+    </section>
+
+    
+  </main>  
+
+  <%- include('./partials/footer') %>
+
+</body>
+</html>

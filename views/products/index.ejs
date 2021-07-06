@@ -18,42 +18,8 @@
     
 </head>
 <body>
-    <span >
-    <img class="Fondo" src="/images/Fondo.jpg" alt=""> 
-    </span>
-    <header>
-        <article class="header">
-
-             <div class="bloque_1">
-                    <span class="Logotipo">
-                        <img width="100%" src="/images/Logotipo.png" alt="">   <!-- LOGOTIPO -->
-                    </span>
-
-                    <span>
-                        <a href="/"><i class="fas fa-home"></i></a>        <!-- Casita de HOME -->
-                    </span>
-
-                    <span>
-                        <button class="categorias">Categorias</button>                             <!-- Boton de categorias  -->
-                    </span>
-
-                    <span class= "Barra_de_busqueda">
-                        <input class="busquedor" type="text" placeholder="Buscar productos, marcas">  <!-- PONER BARRA DE BUSQUEDA CON ESTO -->
-                        <i class="fas fa-search"></i>  <!-- Poner el boton de la busqueda-->
-                    </span>
-                    <span class="carrito">
-                        <a href="/productCart"> <i class="fas fa-shopping-cart"></i></a> <!-- Carrito de mercado libre  -->
-                    </span>
-                    <span>
-                        <a href="/login"><i class="fas fa-user-circle"></i></a>       <!-- Monito de Usuario  -->
-                    </span>                   
-
-             </div>
-
-        </article>
-
-    </header>
-
+    
+    <%- include('./partials/header') %>
     
   <main> 
         <ul><li class= "index_titulares"> Lo mas nuevo!!! </p></li></ul>
@@ -103,54 +69,8 @@
 
     </section>
   </main>
-
-    <footer>
-        <article class="contactanos">
-          <h3> Contactanos </h3>
-             <div class="contactanos_iconos">
-                <i class="fab fa-facebook-square"></i>   
-                <i class="fab fa-whatsapp"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-            </div>
-
-            <h3> Aceptamos </h3>
-            <div class="contactanos_iconos">
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-paypal"></i>
-                <i class="fab fa-cc-amex"></i>
-           </div>
-        </article>
-
-        <article>
-
-            <h3> Acerca de nosotros...  </h3>
-            <br>
-            <div>Quienes somos</div>
-            <div>Programas afiliados</div>
-            <div>Blogger de moda</div>
-        </article>
-        
-        <article>
-
-            <h3> Necesitas ayuda?  </h3>
-            <br>
-            <div>Informacion de envio</div>
-            <div>Devoluciones</div>
-            <div>Como realizar la compra</div>
-            <div>Rastrear el pedido</div>
-            <div>Puntos</div>
-
-
-        </article>
-        <article>
-            <div>
-                 <img width="100%" src="/images/Logotipo.png" alt="">   <!-- LOGOTIPO -->
-            </div>
-         </article>      
-
-    </footer>
+  
+  <%- include('./partials/footer') %>
 
 </body>
 </html>
