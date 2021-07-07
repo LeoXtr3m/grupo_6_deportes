@@ -1,8 +1,7 @@
-const path = require ('path');
 
 const controlador = {
-    home: (req, res) => {
-        res.sendFile(path.resolve('/views/products/index.ejs'));
+    home: function(req,res){
+        res.render('../views/products/index.ejs')  // index es el nombre de la vista 
     },
 };
 module.exports = controlador;
