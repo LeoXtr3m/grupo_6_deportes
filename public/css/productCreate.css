@@ -1,0 +1,85 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    padding-top: 40px;
+}
+
+form input.formu_description {
+    width: 90%;
+    height: 130px;
+    font-weight: 600;
+    font-size: 14px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 27px;
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+form input.formu_individual {
+    width: 90%;
+    font-size: 14px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 27px;
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+form input.formu_seleccion {
+    display: flex;
+    width: 90%;
+    font-size: 14px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 27px;
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rectangulos{
+    padding: 35px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.seleccion{
+    width: auto;
+    display: flex;
+    padding: 0px;
+    margin-top: -7%;
+    margin-bottom: -5%;
+}
+
+h3{
+    padding: 5%;
+}
+
+.selector_tipo{
+    padding: 10%;
+}
+
+.boton_Crear{
+    text-align: center;
+}

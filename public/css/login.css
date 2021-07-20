@@ -24,7 +24,7 @@ main.m1 {
 
 main.m2 {
     width: 600px;
-    height: 500px;
+    height: 650px;
 }
 
 .login, .register {
@@ -104,7 +104,8 @@ button {
 }
 
 .m2 button{
-    margin-left: 38%;
+    margin-left: 75%;
+    background-color: brown;
 }
 
 @media (max-width: 375px) {

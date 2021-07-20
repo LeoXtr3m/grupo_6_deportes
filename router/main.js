@@ -8,5 +8,6 @@ router.get('/productDetail',mainControlador.productDetail);
 router.get('/productos',mainControlador.productos);
 router.get('/login',mainControlador.login);
 router.get('/register',mainControlador.register);
-
+router.get('/create',mainControlador.create);
+router.get('/edit',mainControlador.edit);
 module.exports = router;

@@ -20,6 +20,14 @@ const controlador = {
         res.render('../views/users/register.ejs');
 
     },
+    create: (req, res) => {
+        res.render('../views/products/productCreate.ejs');
+
+    },
+    edit: (req, res) => {
+        res.render('../views/products/productEdit.ejs');
+
+    },
 };
 
 module.exports = controlador;

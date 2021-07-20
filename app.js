@@ -16,7 +16,7 @@ app.use('/productDetail',mainRouter);
 app.use('/productos',mainRouter);
 app.use('/login',mainRouter);
 app.use('/register',mainRouter);
-
+app.use('/create',mainRouter);
 
 app.listen(process.env.PORT || port, () => 
     console.log('Servidor corriendo en el puerto ' + port)
