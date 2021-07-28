@@ -16,16 +16,16 @@ ADARELY
 27/07/2021 
 
 -sprint 3 
-* Start Doing (Empezar a hacer):
-* More of (Que vamos a mejorar):
-* Keep Doing (Que debemos seguir haciendo):
-* Less of (Que debemos de hacer menos):
-* Stop Doing (Que podemos dejar de hacer):
+* Start Doing (Empezar a hacer): Hacer pruebas en diferentes tamaños de pantallas para un mejor diseño responsivo.
+* More of (Que vamos a mejorar): Mejor organizacion en tiempo para concluir las tareas
+* Keep Doing (Que debemos seguir haciendo): La forma de repartir tareas
+* Less of (Que debemos de hacer menos): No actualizar el tablero
+* Stop Doing (Que podemos dejar de hacer): Repartir las tareas despues de una semana
 
 -sprint 4 
-* Start Doing (Empezar a hacer):
-* More of (Que vamos a mejorar):
-* Keep Doing (Que debemos seguir haciendo):
+* Start Doing (Empezar a hacer): Hablar un dia a la semana para actualizar repartir tareas y actualizar proyecto
+* More of (Que vamos a mejorar): Programacion en los controladores
+* Keep Doing (Que debemos seguir haciendo): 
 * Less of (Que debemos de hacer menos):
 * Stop Doing (Que podemos dejar de hacer):
 
