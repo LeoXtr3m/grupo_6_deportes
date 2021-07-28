@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Black Cherry Lemonade",
+    "price": 4976.9,
+    "discount": 3,
+    "description": "mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque",
+    "image": "product_1.jpg",
+    "category": "Futbol",
+    "cantidad": 1
+  },
+  {
+    "id": 2,
+    "name": "Miso Paste White",
+    "price": 3796.39,
+    "discount": 3,
+    "description": "felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui",
+    "image": "product_2.jpg",
+    "category": "Basquet",
+    "cantidad": 2
+  },
+  {
+    "id": 3,
+    "name": "Taro Root",
+    "price": 4961.67,
+    "discount": 3,
+    "description": "luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia",
+    "image": "product_3.jpg",
+    "category": "Beisbol",
+    "cantidad": 3
+  },
+  {
+    "id": 4,
+    "name": "Carmenere Casillero Del",
+    "price": 1589.47,
+    "discount": 3,
+    "description": "pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis",
+    "image": "product_4.jpg",
+    "category": "Futbol americano",
+    "cantidad": 4
+  },
+  {
+    "id": 5,
+    "name": "Pancetta",
+    "price": 4603.39,
+    "discount": 3,
+    "description": "a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse",
+    "image": "product_5.jpg",
+    "category": "Futbol",
+    "cantidad": 5
+  }
+]

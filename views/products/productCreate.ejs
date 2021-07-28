@@ -21,7 +21,7 @@
     <main class="m2">
         <div class="register">CREAR PRODUCTO</div>
         
-        <form action="/" method="GET">
+        <form action="/create" method="POST"  enctype="multipart/form-data"> 
 
             <div>
                 <input class="formu_individual" type="text" name="nameProductoNew" id="nameProductoNew" placeholder="Nombre del producto" required>
@@ -35,7 +35,7 @@
                     </div>
                          <div>
                             <label >
-                                <select name="OS">
+                                <select name="deporte">
                                     <optgroup label="Deportes">
                                         <option value="1">Futbol</option> 
                                         <option value="2">Basquetbol</option> 
@@ -53,10 +53,8 @@
                         <h3> Tipo de producto</h3>
                     </div>  
                     <div>                
-                        <label class=selector_tipo>
+                        <label for="CategoryProductNew" class=selector_tipo>
                             <input type="radio" name="CategoryProductNew" >Vestuario
-                        </label>
-                        <label>
                             <input type="radio" name="CategoryProductNew" >Equipo
                         </label>
                     </div>  
@@ -68,21 +66,25 @@
 
             <div class="form1">
                 <div>
+                    <label for="precio" ></label>
                     <input class="formu"type="text" name="precio" id="precio" placeholder="Precio" required>
                 </div>
     
                 <div>
+                    <label for="descuento" ></label>
                     <input class="formu"type="text" name="descuento" id="descuento" placeholder="Descuento" required>
                 </div>    
             </div>
 
             <div>
-                <input class="formu_individual" type="file" name="imagen" id="descuento" placeholder="Imagen del producto" required>
+                <label for="imagen" ></label>
+                <input class="formu_individual" type="file" name="imagen" id="imagen" placeholder="Imagen del producto" required>
             </div>    
             
 
             <div>
-                <input class="formu_description"type="text" name="descripcion" id="descuento" placeholder="Descripcion" required>
+                <label for="descripcion" ></label>
+                <input class="formu_description"type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required>
             </div>    
             
             <div class=boton_Crear>
