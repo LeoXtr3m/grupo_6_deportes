@@ -32,11 +32,11 @@ ADARELY
 LEONCIO 
 27/07/2021 
 -sprint 3 
-* Start Doing (Empezar a hacer):
-* More of (Que vamos a mejorar):
-* Keep Doing (Que debemos seguir haciendo):
-* Less of (Que debemos de hacer menos):
-* Stop Doing (Que podemos dejar de hacer):
+* Start Doing (Empezar a hacer): Empezar a trabajar sobre hacer la pagina responsive y que el diseño se vea mas formal 
+* More of (Que vamos a mejorar): Dedicar mas tiempo a trabajar sobre el sprint 
+* Keep Doing (Que debemos seguir haciendo): Ir a la par con los sprint ya que el atrazarnos nos haria todo mas pesado
+* Less of (Que debemos de hacer menos): resagar las actividades 
+* Stop Doing (Que podemos dejar de hacer): dejar todo para los ultimos momentos por falta de tiempo 
 
 -sprint 4 
 * Start Doing (Empezar a hacer):
