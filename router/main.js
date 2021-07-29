@@ -13,6 +13,7 @@ const path = require('path');    // PARA PODER USAR EL __dirname
 const storage = multer.diskStorage({                     // guardar la informacion en una variable storage
     destination: (req, file, cb) => {                         //// CONFIGURAR DONDE SE GUARDARA EL ARCHIVO 
       cb(null, path.join(__dirname, '../public/images/products'));     // LO LLEVA A LA CARPETA IMAGENES 
+
     },
     filename: (req, file, cb) => {      /// DATOS DE COMO SE GUARDARA EL ARCHIVO 
       //console.log(file);
@@ -28,11 +29,28 @@ const storage = multer.diskStorage({                     // guardar la informaci
   
   ///////////////////////////////////////////
 
+/*
+///////////////////           MULTER    --GUARDAR IMAGEN DEL USUARIO     
 
+const imageUser = multer.diskStorage({                     // guardar la informacion en una variable storage
+  destination: (req, file, cb) => {                         //// CONFIGURAR DONDE SE GUARDARA EL ARCHIVO 
+    cb(null, path.join(__dirname, '../public/images/users'));     // LO LLEVA A LA CARPETA IMAGENES 
+  },
+  filename: (req, file, cb) => {      /// DATOS DE COMO SE GUARDARA EL ARCHIVO 
+    //console.log(file);
+    const newFilename = 'Users-' + Date.now() + path.extname(file.originalname);  // SE LE DA EL NOMBRE A LA IMGAEN 
+                                                                                  // Date.now es para generar un numero de acuerdo al tiempo en milisegundos
+                                                                                 // path.extname es para agregar la extencion a la imagen 
+                                                                                 // file.originalname  permite dejarle la extencion original al archivo
+    cb(null, newFilename)
+  }
+});
 
+const uploadUsersFILE = multer({ imageUser: imageUser })     /// se guarda todo esto en la variable upload
 
+///////////////////////////////////////////
 
-
+*/
 
 router.get('/',mainControlador.index);
 router.get('/productCart',mainControlador.productCart);
@@ -40,8 +58,11 @@ router.get('/productDetail',mainControlador.productDetail);
 router.get('/productos',mainControlador.productos);
 router.get('/login',mainControlador.login);
 router.get('/register',mainControlador.register);
+router.post('/register',uploadFILE.single('image'),mainControlador.addUser);
+
 router.get('/create',mainControlador.create);
-router.post('/create',uploadFILE.single('imagen'),productController.newProduct);
+//router.post('/create',uploadFILE.single('imagen'),productController.newProduct);
+
 
 router.get('/edit',mainControlador.edit);
 module.exports = router;
