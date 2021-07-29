@@ -34,14 +34,17 @@ const storage = multer.diskStorage({                     // guardar la informaci
 
 
 
-router.get('/',mainControlador.index);
-router.get('/productCart',mainControlador.productCart);
-router.get('/productDetail',mainControlador.productDetail);
-router.get('/productos',mainControlador.productos);
-router.get('/login',mainControlador.login);
-router.get('/register',mainControlador.register);
-router.get('/create',mainControlador.create);
+router.get('/',mainControlador.index); // Pagina de inicio
+router.get('/login',mainControlador.login); // Login de usuario
+router.get('/register',mainControlador.register); // Registro de usuario
+
+router.get('/productCart',productController.productCart); // Carrito de compras
+
+//router.get('/productDetail',mainControlador.productDetail);
+router.get('/products/:category?/:id?',productController.products); // Listado de productos por categoria, si lleva ID es detalle de productos por id
+
+router.get('/create',productController.create);
 router.post('/create',uploadFILE.single('imagen'),productController.newProduct);
 
-router.get('/edit',mainControlador.edit);
+router.get('/edit',productController.edit);
 module.exports = router;

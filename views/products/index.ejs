@@ -23,7 +23,16 @@
     </section>
         <ul><li class= "index_titulares"> Categorias</li></ul>
     <section class="index_section_2">
-        
+
+        <% for (let categoria of categorias) { %>
+            <article class="index_productos">
+                <figure class="index_imagen_producto"><a href="/products/<%= categoria.categoria%>"><p class ="imagenes-box"> <img width="80%" src="/images/<%=categoria.imgcat%>" alt=""></p></a></figure>
+                    <div class="index_informacion_de_producto"> 
+                            <p class= "index_descripciones"><%= categoria.categoria%></p> <br>
+                    </div>
+            </article>
+        <% } %>
+        <!--
         <article class="index_productos">
             <figure class="index_imagen_producto"><a href="/productos"><p class ="imagenes-box"> <img width="80%" src="/images/futbol.jpg" alt=""></p></a></figure>
                 <div class="index_informacion_de_producto"> 
@@ -51,6 +60,7 @@
                         <p class= "index_descripciones">  Futbol Americano</p> <br>        
                 </div>
         </article>
+        -->
         <br>
 
     </section>

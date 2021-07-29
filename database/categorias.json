@@ -1,0 +1,16 @@
+[{
+    "id-cat": "1",
+    "categoria": "Futbol",
+    "imgcat": "Futbol.jpg"},
+{
+    "id-cat": "2",
+    "categoria": "Basquet",
+    "imgcat": "basquetbol.jpg"},
+{
+    "id-cat": "3",
+    "categoria": "Beisbol",
+    "imgcat": "beisbol.jpg"},
+{
+    "id-cat": "4",
+    "categoria": "Futbol americano",
+    "imgcat": "f_americano.jpg"}]

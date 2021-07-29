@@ -1,31 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../database/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+const categorias = require("../database/categorias.json");
 
 const controlador = {
 
     index: (req, res) => {
-        
-        res.render('../views/products/index.ejs');
-    },
-    productCart: (req, res) => {
-        res.render('../views/products/productCart.ejs');
-    },
-
-    productCreate: (req, res) => {
-        res.render('../views/products/productCreate.ejs');
-    },
-
-    productDetail: (req, res) => {
-        res.render('../views/products/productDetail.ejs');
-    },
-    productos: (req, res) => {
-        let productos = products;
-        //return res.send(productos)
-        res.render('../views/products/productos.ejs', {'productos': productos});
+        res.render('../views/products/index.ejs', {categorias:categorias});
     },
     login: (req, res) => {
         res.render('../views/users/login.ejs');
@@ -33,15 +13,7 @@ const controlador = {
     register: (req, res) => {
         res.render('../views/users/register.ejs');
 
-    },
-    create: (req, res) => {
-        res.render('../views/products/productCreate.ejs');
-
-    },
-    edit: (req, res) => {
-        res.render('../views/products/productEdit.ejs');
-
-    },
+    }
 };
 
 module.exports = controlador;

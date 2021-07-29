@@ -1,22 +1,20 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const port = 3000;
-
+const express    = require('express');
+const app        = express();
+const path       = require('path');
+const port       = 3000;
 const mainRouter = require('./router/main')
 
 app.use(express.static('public'));//Indica que usara la carpeta Public como estatica 
-
 app.set('view engine', 'ejs'); // Par indicar que se usara las herramientas de ejs 
 
 
-app.use('/',mainRouter);
-app.use('/productCart', mainRouter);
-app.use('/productDetail',mainRouter);
-app.use('/productos',mainRouter);
-app.use('/login',mainRouter);
-app.use('/register',mainRouter);
-app.use('/create',mainRouter);
+app.use('/',mainRouter); // Producto
+app.use('/login',mainRouter); // Usuario
+app.use('/register',mainRouter); // Usuario
+app.use('/productCart', mainRouter); // Carrito de compras
+//app.use('/productDetail',mainRouter); // Detalle de producto
+app.use('/products',mainRouter); // Productos por categorias
+app.use('/create',mainRouter); // Crear un nuevo producto
 
 app.listen(process.env.PORT || port, () => 
     console.log('Servidor corriendo en el puerto ' + port)

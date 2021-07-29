@@ -12,16 +12,16 @@
       <section class="s1">
       <div class="principal">
           <div class="imgch">
-            <img class src="images/teni_nike_2.png">
+            <img class src="/images/<%= producto.image %>">
           </div>
           
           <div class="imgg">
-            <img class src="images/teni_nike_2.png">
+            <img class src="/images/<%= producto.image %>">
           </div>
           <div class="contenido1">
-              <p>Nombre del producto</p>
-              <p class="categoria">Categoria</p>
-              <p class="precio">$Precio</p>
+              <p><%= producto.name %></p>
+              <p class="categoria"><%= producto.category %></p>
+              <p class="precio">$<%= producto.price %></p>
               <br>
               <div class="contenido2">
                 <h5>Talla</h5>

@@ -1,13 +1,43 @@
 const fs = require('fs');
 const path = require('path');
-const { productos } = require('./mainController');
+//const { productos } = require('./mainController');
 
 const productsFilePath = path.join(__dirname, '../database/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const productControlador = {
+    products: (req, res) => {
+        if (req.params.category == undefined) { // Si no se manda la caregoria nos muestra todos los productos
+            res.render('../views/products/productos.ejs', {productos:products})
+        } else {
+            if (req.params.id === undefined) { // Si solo se manda la categoria y no el id muestra todos los productos de esa categoria
+                let productosList = products.filter (producto => producto.category == req.params.category); // Guardar nueva lista de productos filtrados por categoria
+                res.render('../views/products/productos.ejs', {
+                    productos:productosList
+                })
+            } else { // Si se manda la categoria y el id muestra el detalle del producto
+                let producto = products.filter ( producto => producto.id == req.params.id)[0]; // Se filtra producto por ID
+                res.render('../views/products/productDetail.ejs', {
+                        producto:producto
+                    }
+                );  
+            }
+        }  
+    },
 
+    productCart: (req, res) => {
+        res.render('../views/products/productCart.ejs');
+    },
+
+    create: (req, res) => {
+        res.render('../views/products/productCreate.ejs');
+
+    },
+    edit: (req, res) => {
+        res.render('../views/products/productEdit.ejs');
+
+    },
     newProduct: (req, res) => {
         //return res.send("ESTOY AQUI");
         let product_new = {

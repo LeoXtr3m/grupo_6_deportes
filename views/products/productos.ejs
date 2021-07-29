@@ -13,24 +13,22 @@
 
         <section class="section_1">
         
-
-
-                <% for (let i=0; i < productos.length ; i++) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
+                <% for (let producto of productos) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
 
                   <article class="productos">
-                    <a href="/productDetail">
-                         <div class="imagen_producto"><img width="80%" src="/images/products/<%= productos[i].image %>" alt=""></div>
+                    <a href="/products/<%= producto.category %> /<%= producto.id %>">
+                         <div class="imagen_producto"><img width="80%" src="/images/<%= producto.image %>" alt=""></div>
                              <div class="informacion_de_producto"> 
                                  <i class="fas fa-shopping-basket"></i> 
                                     <div>
-                                        <h2 class= "precios"> $<%= productos[i].price %></h2>
-                                        <span class="descuentos"><%= productos[i].discount %>% OFF</span>
+                                        <h2 class= "precios"> $<%= producto.price %></h2>
+                                        <span class="descuentos"><%= producto.discount %>% OFF</span>
                                     </div>
-                                     <p class= "nombre-producto"><%= productos[i].name %></p> <br>
+                                     <p class= "nombre-producto"><%= producto.name %></p> <br>
                              </div>
                          </a>
                     </article>
-                 <% } %>
+                <% } %>
 
        </section>
 
@@ -39,22 +37,22 @@
                     <ul><li class= "titulares"> Ofertas</li></ul>
     <section class="section_2">
         
-        <% for (let i=0; i < productos.length ; i++) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
+        <% for (let producto of productos) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
 
             <article class="productos">
-              <a href="/productDetail">
-                   <div class="imagen_producto"><img width="80%" src="/public/images/products/<%= productos[i].image %>" alt=""></div>
+              <a href="/products/<%= producto.category %> /<%= producto.id %>">
+                   <div class="imagen_producto"><img width="80%" src="/images/<%= producto.image %>" alt=""></div>
                        <div class="informacion_de_producto"> 
                            <i class="fas fa-shopping-basket"></i> 
                               <div>
-                                  <h2 class= "precios"> $<%= productos[i].price %></h2>
-                                  <span class="descuentos"><%= productos[i].discount %>% OFF</span>
+                                  <h2 class= "precios"> $<%= producto.price %></h2>
+                                  <span class="descuentos"><%= producto.discount %>% OFF</span>
                               </div>
-                               <p class= "nombre-producto"><%= productos[i].name %></p> <br>
+                               <p class= "nombre-producto"><%= producto.name %></p> <br>
                        </div>
                    </a>
               </article>
-           <% } %>
+        <% } %>
 
     </section>
   </main>  
