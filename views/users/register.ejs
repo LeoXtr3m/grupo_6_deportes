@@ -20,36 +20,49 @@
     <main class="m2">
         <div class="register">REGISTRATE</div>
         
-        <form action="/" method="GET">
+        <form action="/register" method="POST"  enctype="multipart/form-data">
 
             <div class="form1">
                 <div>
-                    <input class="formu" type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                    <label for="firstName" ></label>
+                    <input class="formu" type="text" name="firstName" id="firstName" placeholder="Nombre" required>
                 </div>
     
                 <div>
-                    <input class="formu" type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+                    <label for="lastName" ></label>
+                    <input class="formu" type="text" name="lastName" id="lastName" placeholder="Apellido" required>
                 </div>
             </div>
 
             <div>
-                <input class="formu" type="email" name="correo" id="correo" placeholder="Correo" required>
+                <label for="email" ></label>
+                <input class="formu" type="email" name="email" id="email" placeholder="Correo" required>
             </div>
+
 
             <div class="form1">
                 <div>
-                    <input class="formu"type="password" name="contraseña" id="contraseña" placeholder="Contraseña" required>
+                    <label for="age" ></label>
+                    <input class="formu" type="text" name="age" id="age" placeholder="Edad" required>
                 </div>
     
                 <div>
-                    <input class="formu"type="password" name="contraseña" id="contraseña2" placeholder="Confirma contraseña" required>
+                    <label for="numberCel" ></label>
+                    <input class="formu" type="text" name="numberCel" id="numberCel" placeholder="Numero de telefono" required>
+                </div>
+            </div>
+            
+            <div class="form1">
+                <div>
+                    <label for="password" ></label>
+                    <input class="formu"type="password" name="password" id="password" placeholder="Contraseña" required>
+                </div>
+    
+                <div>
+                    <label for="password2" ></label>
+                    <input class="formu"type="password" name="password2" id="password2" placeholder="Confirma contraseña" required>
                 </div>    
             </div>
-
-            <div>
-                <input class="formu"type="text" name="pais" id="pais" placeholder="Pais" required>
-            </div>
-
             <div class="boton"> 
                 <button type="submit">Resgistrate</button>
             </div>

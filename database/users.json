@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "firstName": "Leoncio",
+    "lastName": "Rios",
+    "email": "leoncio.rios21@gmail.com",
+    "password": 12345,
+    "age": 12,
+    "numberCel": 6563265533
+  },
+  {
+    "id": 2,
+    "firstName": "Ada",
+    "lastName": "R",
+    "email": "ada@gmail.com",
+    "password": 123456,
+    "age": 12,
+    "numberCel": 6563265533
+  },
+  {
+    "id": 3,
+    "firstName": "Leoncio",
+    "lastName": "Rios",
+    "email": "leoncio.rios21@gmail.com",
+    "password": "123",
+    "age": "23",
+    "numberCel": "6564323455"
+  }
+]

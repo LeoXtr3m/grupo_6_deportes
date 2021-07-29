@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 //const { productos } = require('./mainController');
 
+///JSON PRODUCTOS
 const productsFilePath = path.join(__dirname, '../database/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
