@@ -3,69 +3,61 @@ const router          = express.Router();
 const mainControlador = require('../controllers/mainController');
 const productController = require('../controllers/productController');
 
+
+//// MIDDLEWARE 
+//const multerImagenProducto = require('../Middleware/multerImagenProducto');
+
+
 // ****** MULTER **********
 const multer = require('multer');     /// mandar llamar la libreria de multer
 const path = require('path');    // PARA PODER USAR EL __dirname
 //// ************
 
+/////////        MIDDLEWARE  VALIDACION  QUE SE ESCRIBIO BIEN EL REGISTRO          
+const {body} = require('express-validator');
+
+
+const uploadFile = require('../Middleware/multerImagenProducto');
+const uploadFileUser = require('../Middleware/multerImagenUser');
+const guestMiddleware = require('../Middleware/guestMiddleware');
+ ////////////////////////////////////////
+
+
+
 ///////////////////           MULTER    --GUARDAR IMAGEN DEL PRODUCTO     
-
-const storage = multer.diskStorage({                     // guardar la informacion en una variable storage
-    destination: (req, file, cb) => {                         //// CONFIGURAR DONDE SE GUARDARA EL ARCHIVO 
-      cb(null, path.join(__dirname, '../public/images/products'));     // LO LLEVA A LA CARPETA IMAGENES 
-
-    },
-    filename: (req, file, cb) => {      /// DATOS DE COMO SE GUARDARA EL ARCHIVO 
-      //console.log(file);
-      const newFilename = 'producto-' + Date.now() + path.extname(file.originalname);  // SE LE DA EL NOMBRE A LA IMGAEN 
-                                                                                    // Date.now es para generar un numero de acuerdo al tiempo en milisegundos
-                                                                                   // path.extname es para agregar la extencion a la imagen 
-                                                                                   // file.originalname  permite dejarle la extencion original al archivo
-      cb(null, newFilename)
-    }
-  });
-  
-  const uploadFILE = multer({ storage: storage })     /// se guarda todo esto en la variable upload
   
   ///////////////////////////////////////////
 
-/*
-///////////////////           MULTER    --GUARDAR IMAGEN DEL USUARIO     
+  ///// VALIDATION OF REGISTER  
+  const validationCreateForm = [
+    body("firstName").notEmpty().withMessage("Debes de ingresar un nombre"), // si el campo no esta vacio se ejecuta esto
+    body("lastName").notEmpty().withMessage("Debes de ingresar un nombre"), // si el campo no esta vacio se ejecuta esto
+    body("age").isNumeric().withMessage("Debes de ingresar la edad"), // si el campo esta vacio se ejecuta esto
+    body("numberCel").isNumeric().withMessage("Debes de ingresar un numero de telefono valido"), // si el campo esta vacio se ejecuta esto
+    body('email').isEmail().withMessage("Debes de ingresar un email valido") // si no es un email, se envia este mensaje
+  ];
 
-const imageUser = multer.diskStorage({                     // guardar la informacion en una variable storage
-  destination: (req, file, cb) => {                         //// CONFIGURAR DONDE SE GUARDARA EL ARCHIVO 
-    cb(null, path.join(__dirname, '../public/images/users'));     // LO LLEVA A LA CARPETA IMAGENES 
-  },
-  filename: (req, file, cb) => {      /// DATOS DE COMO SE GUARDARA EL ARCHIVO 
-    //console.log(file);
-    const newFilename = 'Users-' + Date.now() + path.extname(file.originalname);  // SE LE DA EL NOMBRE A LA IMGAEN 
-                                                                                  // Date.now es para generar un numero de acuerdo al tiempo en milisegundos
-                                                                                 // path.extname es para agregar la extencion a la imagen 
-                                                                                 // file.originalname  permite dejarle la extencion original al archivo
-    cb(null, newFilename)
-  }
-});
 
-const uploadUsersFILE = multer({ imageUser: imageUser })     /// se guarda todo esto en la variable upload
-
-///////////////////////////////////////////
-
-*/
 
 router.get('/',mainControlador.index); // Pagina de inicio
-router.get('/login',mainControlador.login); // Login de usuario
-router.get('/register',mainControlador.register); // Registro de usuario
+
+router.get('/login', guestMiddleware, mainControlador.login); // Login de usuario
+router.post('/login',mainControlador.enterLogin); // Logearse de usuario
+
+router.get('/register', guestMiddleware,mainControlador.register); // Registro de usuario
+router.post('/register', uploadFileUser.single('profile_photo'), validationCreateForm, mainControlador.addUser);
+
 
 router.get('/productCart',productController.productCart); // Carrito de compras
 
 router.get('/products/:category?/:id?',productController.products); // Listado de productos por categoria, si lleva ID es detalle de productos por id
 
 router.get('/create',productController.create);
-router.post('/create',uploadFILE.single('imagen'),productController.newProduct);
+router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
-router.post('/register',uploadFILE.single('image'),mainControlador.addUser);
 
-//router.post('/create',uploadFILE.single('imagen'),productController.newProduct);
+
+//router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
 router.get('/edit',productController.edit);
 

@@ -20,6 +20,17 @@
     <main class="m2">
         <div class="register">REGISTRATE</div>
         
+<!-- ///////////////////////////      MIDDLEWARE VALIDACION AVANZADA       ///////////////////////////////  -->
+<!--//////////////////////////////////////NO SE USA DE MOMENTO /////////////////////////////////////////////-->
+<% if (locals.errors){ %>  <!-- Si la variable "errors viene vacia, NO ENTRA"-->
+
+<% errors.forEach(error => { %>   <!-- Muestra los errores que se presentaron en el formulario, "VIENE DE ROUTERS"-->
+    <p><%= error.msg %></p>
+   
+    <% }) %> 
+<% } %>  
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
         <form action="/register" method="POST"  enctype="multipart/form-data">
 
             <div class="form1">
@@ -32,23 +43,28 @@
                     <label for="lastName" ></label>
                     <input class="formu" type="text" name="lastName" id="lastName" placeholder="Apellido" required>
                 </div>
+
             </div>
 
             <div>
                 <label for="email" ></label>
-                <input class="formu" type="email" name="email" id="email" placeholder="Correo" required>
+                <input class="form2" type="email" name="email" id="email" placeholder="Correo" required>
+                 <% if(locals.usuarioLogeado){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+                <p  class="alineadoErrorLoggeado"><%= usuarioLogeado %></p>
+                 <% } %>  
+
             </div>
 
 
             <div class="form1">
                 <div>
                     <label for="age" ></label>
-                    <input class="formu" type="text" name="age" id="age" placeholder="Edad" required>
+                    <input class="formu" type="number" name="age" id="age" placeholder="Edad" required>
                 </div>
     
                 <div>
                     <label for="numberCel" ></label>
-                    <input class="formu" type="text" name="numberCel" id="numberCel" placeholder="Numero de telefono" required>
+                    <input class="formu" type="number" name="numberCel" id="numberCel" placeholder="Numero de telefono" required>
                 </div>
             </div>
             
@@ -63,6 +79,18 @@
                     <input class="formu"type="password" name="password2" id="password2" placeholder="Confirma contraseña" required>
                 </div>    
             </div>
+            <% if(locals.paswordIncorrecto){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="alineadoErrorPassword"><%= paswordIncorrecto %></p>
+             <% } %>  
+
+
+
+            <h3 class="alineado">Selecciona la foto de perfil</h3>
+            <div>
+                <label for="profilePhoto" ></label>
+                <input class="form2" type="file" name="profile_photo" id="profile_photo" placeholder="Foto de perfil" required>
+            </div>
+
             <div class="boton"> 
                 <button type="submit">Resgistrate</button>
             </div>

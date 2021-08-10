@@ -91,10 +91,10 @@ button {
     font-size: 13px;
     background: var(--color-secundario);
     border: 0;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);;
+    box-shadow: 0 0 20px 1px rgb(0 0 0 / 4%);
     padding: 10px 40px 10px 40px;
     margin-left: 5%;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -102,6 +102,23 @@ button {
     display: flex;
     flex-direction: row;
 }
+
+.form2 {
+    width: 90%;
+    font-weight: 600;
+    font-size: 14px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 27px;
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 
 .m2 button{
     margin-left: 75%;
@@ -126,4 +143,42 @@ button {
     .m2 button{
         margin-left: 28%;
     }
+}
+
+
+.alineado{
+    text-align: left;
+    margin-left: 9%;
+    margin-bottom: 3%;
+    line-height: 130%;
+}
+
+.alineadoErrorLoggeado{
+    font-weight: bold;
+    text-align: left;
+    margin-left: 26%;
+    margin-bottom: 0%;
+    line-height: 121%;
+    margin-top: -4%;
+    color: red;
+}
+
+.alineadoErrorPassword{
+    font-weight: bold;
+    text-align: left;
+    margin-left: 26%;
+    margin-bottom: 4%;
+    line-height: 121%;
+    margin-top: -3%;
+    color: red;
+}
+
+.alineadoNoLogeado{
+    font-weight: bold;
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 6%;
+    line-height: 121%;
+    margin-top: -5%;
+    color: red;
 }

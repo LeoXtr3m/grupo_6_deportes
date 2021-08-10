@@ -25,5 +25,70 @@
     "password": "123",
     "age": "23",
     "numberCel": "6564323455"
+  },
+  {
+    "id": 4,
+    "firstName": "Leoooo",
+    "lastName": "rrr",
+    "email": "leoncio@gmail.com",
+    "password": "123456",
+    "age": "23",
+    "numberCel": "6564323455"
+  },
+  {
+    "id": 5,
+    "firstName": "ee",
+    "lastName": "222",
+    "email": "Ada@gmail.com",
+    "password": "12345678",
+    "age": "23",
+    "numberCel": "6564323455"
+  },
+  {
+    "id": 6,
+    "firstName": "Leoncio",
+    "lastName": "Rios",
+    "email": "Ada@gmail.com",
+    "password": "11",
+    "age": "23",
+    "numberCel": "6564323455"
+  },
+  {
+    "id": 7,
+    "firstName": "Leoncio",
+    "lastName": "Rios",
+    "email": "Ada@gmail.com",
+    "password": "12345678",
+    "age": "23",
+    "numberCel": "6564323455"
+  },
+  {
+    "id": 8,
+    "firstName": "Leoncio",
+    "lastName": "Rio",
+    "email": "Ada@gmail.com",
+    "password": "12345678",
+    "age": "12",
+    "numberCel": "6564323455"
+  },
+  {
+    "id": 9,
+    "firstName": "LEO",
+    "lastName": "Rio",
+    "email": "Ada2223@gmail.com",
+    "password": "$2a$10$SHLzAPmrLWdsUaQ.OIHy3O6OgOzsjRNLtpYTerCAZfuD6F61sTdLq",
+    "age": "1",
+    "numberCel": "6564323455",
+    "profilePhoto": "Usuario-1628572448289.jpg"
+  },
+  {
+    "id": 10,
+    "firstName": "LEO",
+    "lastName": "Rio",
+    "email": "leo@gmail.com",
+    "password": "$2a$10$UUEfV8Pc2pgEgvH7Kc/ys.ivvr6DtgHR.15jXOnY4d47gMcmqVVVC",
+    "age": "12",
+    "numberCel": "6564323455",
+    "profilePhoto": "Usuario-1628574460690.jpg"
   }
 ]

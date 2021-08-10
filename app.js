@@ -7,6 +7,11 @@ const mainRouter = require('./router/main')
 app.use(express.static('public'));//Indica que usara la carpeta Public como estatica 
 app.set('view engine', 'ejs'); // Par indicar que se usara las herramientas de ejs 
 
+app.use(express.urlencoded({extended: false })); // Para poder obtener correctamente el formato de imagenes al guardarlas .jpg .. etc
+
+/// Session 
+var session = require('express-session');
+app.use(session({secret: 'Es secreto!!!'}));
 
 app.use('/',mainRouter); // Producto
 app.use('/login',mainRouter); // Usuario
@@ -15,6 +20,7 @@ app.use('/productCart', mainRouter); // Carrito de compras
 //app.use('/productDetail',mainRouter); // Detalle de producto
 app.use('/products',mainRouter); // Productos por categorias
 app.use('/create',mainRouter); // Crear un nuevo producto
+
 
 app.listen(process.env.PORT || port, () => 
     console.log('Servidor corriendo en el puerto ' + port)
