@@ -1,12 +1,13 @@
-<span >
-    <img class="Fondo" src="/images/Fondo.jpg" alt=""> 
+<span class="Fondo">
+    <!--  <img class="Fondo" src="/images/Fondo.jpg" alt=""> -->
+    
     </span>
     <header>
         <article class="header">
 
              <div class="bloque_1">
                     <span class="Logotipo">
-                        <img width="100%" src="/images/Logotipo.png" alt="">   <!-- LOGOTIPO -->
+                        <img width="70vw" src="/images/Logotipo.png" alt="">   <!-- LOGOTIPO -->
                     </span>
 
                     <span>
@@ -17,16 +18,32 @@
                         <button class="categorias">Categorias</button>                             <!-- Boton de categorias  -->
                     </span>
 
-                    <span class= "Barra_de_busqueda">
-                        <input class="busquedor" type="text" placeholder="Buscar productos, marcas">  <!-- PONER BARRA DE BUSQUEDA CON ESTO -->
-                        <i class="fas fa-search"></i>  <!-- Poner el boton de la busqueda-->
-                    </span>
+                    <div class="Barra_de_busqueda2">
+                        <form action="/search" method="GET" class="search-form">
+                            <input type="text" name="keywords" placeholder="Buscar productos, marcas" class="search-form_input">
+                            <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+
+
                     <span class="carrito">
                         <a href="/productCart"> <i class="fas fa-shopping-cart"></i></a> <!-- Carrito de mercado libre  -->
                     </span>
-                    <span>
-                        <a href="/login"><i class="fas fa-user-circle"></i></a>       <!-- Monito de Usuario  -->
-                    </span>                   
+                    <div class="iniciar_sesion_cuadro">
+                            <span>
+                                <span>
+                                    <a href="/login"><i class="fas fa-user-circle"></i></a>       <!-- Monito de Usuario  -->
+                                </span> 
+                            </span>
+                            <span>
+                                <span>
+                                    <a href="/login"><h3 class="iniciar_sesios">Iniciar Sesion</h3> </a>      <!-- Monito de Usuario  -->
+                                </span>  
+                                <span>
+                                    <a href="/register"><h3 class="iniciar_registro">Registrarse</h3></a>      <!-- Monito de Usuario  -->
+                                </span> 
+                            </span>  
+                    </div>                 
 
              </div>
 

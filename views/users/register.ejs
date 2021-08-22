@@ -31,24 +31,24 @@
 <% } %>  
 <!--//////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
-        <form action="/register" method="POST"  enctype="multipart/form-data">
+        <form class="fform" action="/register" method="POST"  enctype="multipart/form-data">
 
             <div class="form1">
                 <div>
                     <label for="firstName" ></label>
-                    <input class="formu" type="text" name="firstName" id="firstName" placeholder="Nombre" required>
+                    <input class="formu" type="text" name="firstName" id="firstName" placeholder="Nombre" value="<%= locals.old && old.firstName ? old.firstName : '' %>" required>
                 </div>
     
                 <div>
                     <label for="lastName" ></label>
-                    <input class="formu" type="text" name="lastName" id="lastName" placeholder="Apellido" required>
+                    <input class="formu" type="text" name="lastName" id="lastName" placeholder="Apellido" value="<%= locals.old && old.lastName ? old.lastName : '' %>"required>
                 </div>
 
             </div>
 
             <div>
                 <label for="email" ></label>
-                <input class="form2" type="email" name="email" id="email" placeholder="Correo" required>
+                <input class="form2" type="email" name="email" id="email" placeholder="Correo" value="<%= locals.old && old.email ? old.email : '' %>" required>
                  <% if(locals.usuarioLogeado){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
                 <p  class="alineadoErrorLoggeado"><%= usuarioLogeado %></p>
                  <% } %>  
@@ -59,12 +59,12 @@
             <div class="form1">
                 <div>
                     <label for="age" ></label>
-                    <input class="formu" type="number" name="age" id="age" placeholder="Edad" required>
+                    <input class="formu" type="number" name="age" id="age" placeholder="Edad" value="<%= locals.old && old.age ? old.age : '' %>" required>
                 </div>
     
                 <div>
                     <label for="numberCel" ></label>
-                    <input class="formu" type="number" name="numberCel" id="numberCel" placeholder="Numero de telefono" required>
+                    <input class="formu" type="number" name="numberCel" id="numberCel" placeholder="Numero de telefono" value="<%= locals.old && old.numberCel ? old.numberCel : '' %>" required>
                 </div>
             </div>
             
@@ -88,14 +88,14 @@
             <h3 class="alineado">Selecciona la foto de perfil</h3>
             <div>
                 <label for="profilePhoto" ></label>
-                <input class="form2" type="file" name="profile_photo" id="profile_photo" placeholder="Foto de perfil" required>
+                <input class="form2" type="file" name="profile_photo" id="profile_photo" placeholder="Foto de perfil"  required>
             </div>
 
             <div class="boton"> 
-                <button type="submit">Resgistrate</button>
+                <button class="bbutton" type="submit">Resgistrate</button>
             </div>
 
-            <div class="inicio"><a href="/login">Iniciar sesion</a></div>
+            <div class="inicio"><a class="aa" href="/login">Iniciar sesion</a></div>
         </form>
     </main>
 

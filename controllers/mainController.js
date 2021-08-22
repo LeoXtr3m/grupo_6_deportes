@@ -91,9 +91,9 @@ const controlador = {
 
                     }
                     else{
-                       
+                       //return res.send(req.body)
                         let usuarioLogeado = "El usuario ya esta registrado, ingrese con otro email";
-                        res.render('../views/users/register.ejs', {usuarioLogeado:usuarioLogeado});
+                        res.render('../views/users/register.ejs', {usuarioLogeado:usuarioLogeado, old:req.body});
 
                     }
 
@@ -101,11 +101,12 @@ const controlador = {
             }
             else{
                 let paswordIncorrecto = "Los paswwords ingresados no coinciden";
-                res.render('../views/users/register.ejs', {paswordIncorrecto:paswordIncorrecto});
+                res.render('../views/users/register.ejs', {paswordIncorrecto:paswordIncorrecto, old:req.body});
             }
         }
         else {            /// SI NO SE SUBIO UNA IMAGEN NO  ENTRA
             //let old=req.body; 
+           //return res.send(req.body)
             res.render('../views/users/register.ejs', {errors: errors.array(), old:req.body});   /// LOS ERRORES SE PASAN A UN ARRAY PARA DEVOLVERLOS           
          // res.send({errors: errors.array()});
         }

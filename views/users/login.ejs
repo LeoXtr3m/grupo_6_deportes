@@ -3,24 +3,24 @@
     <head>
         <title>Login</title>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- pagina de estilos recomendada en el Ejercicio -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">   <!-- Documentos de estilo de letra ROBOTO -->
+         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/login.css">
+        
     </head>
 
-    <nav>
-        <%- include('../partials/header') %>
-    </nav>
 
     <body>
-
+        <%- include('../partials/header') %>
     <main class="m1">
         <div class="login">LOGIN</div>
         
-        <form action="/login" method="POST">
+        <form class="fform " action="/login" method="POST">
 
             <div>
                 <input class="formu" type="email" name="correo" id="correo" placeholder="Correo" required>
@@ -43,12 +43,12 @@
             </div>
 
             <div class="boton"> 
-                <button type="submit">Ingresar</button>
+                <button class="bbutton" type="submit">Ingresar</button>
             </div>
 
-            <div class="olvido"><a href="/">¿Olvidaste tu contraseña?</a></div>
+            <div class="olvido"><a class="aa" href="/">¿Olvidaste tu contraseña?</a></div>
 
-            <div class="olvido"><a href="/register">No tienes cuenta, Registrate AQUI</a></div>
+            <div class="olvido"><a class="aa" href="/register">No tienes cuenta, Registrate AQUI</a></div>
 
         </form>
     </main>

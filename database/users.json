@@ -90,5 +90,15 @@
     "age": "12",
     "numberCel": "6564323455",
     "profilePhoto": "Usuario-1628574460690.jpg"
+  },
+  {
+    "id": 11,
+    "firstName": "Leoncio",
+    "lastName": "Rios",
+    "email": "leooo@gmail.com",
+    "password": "$2a$10$FKAgLvRVA3RtCRUPZKiH7OW/ceiwgXexfpC2oA/qpSquKXQ8XiuPC",
+    "age": "2",
+    "numberCel": "6564323455",
+    "profilePhoto": "Usuario-1629476490264.jpg"
   }
 ]
