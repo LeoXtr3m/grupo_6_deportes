@@ -20,6 +20,7 @@ const {validationResult} = require("express-validator");
 const controlador = {
 
     index: (req, res) => {
+        
         res.render('../views/products/index.ejs', {categorias:categorias});
     },
     login: (req, res) => {
@@ -32,8 +33,13 @@ const controlador = {
             let passwordCorrecto = bcryptjs.compareSync(req.body.contraseña, userEncontrado.password);
             if(passwordCorrecto){
                 delete userEncontrado.password;  // borrar el password por seguridad en el loggin 
-                req.session.userLogged = userEncontrado  //almacena el usuario loggeado para que siga logeado  
-                res.render('../views/products/index.ejs', {categorias:categorias});
+                req.session.userLogged = userEncontrado;  //almacena el usuario loggeado para que siga logeado 
+                //return res.send(req.session.userLogged);
+                //req.locals.userLogged = userEncontrado;
+                res.locals.isLogged = true;   /// INDICA QUE SE INICIO SESION 
+                //return res.send(req.locals.userLogged)
+                return res.redirect('/profile');
+               // res.render('../views/users/userProfile.ejs', {userEncontrado:userEncontrado});
             }
             else{
                 let passwordNoCorrecto = "El password es incorrecto";
@@ -112,9 +118,25 @@ const controlador = {
         }
 
 
+    },
+
+    profile: (req, res) => {
+
+        //delete userEncontrado.password;  // borrar el password por seguridad en el loggin 
+         // userEncontrado =  req.session.userLogged; //almacena el usuario loggeado para que siga logeado  
+        // return res.send(userEncontrado)
+      //  res.render('../views/users/userProfile.ejs', {userEncontrado:userEncontrado});
+
+        return res.render('../views/users/userProfile.ejs', {
+            userEncontrado: req.session.userLogged
+        });
+
+    },
+
+    logout: (req,res) => {
+        req.session.destroy();
+        return res.redirect('/');
     }
-
-
 
 };
 

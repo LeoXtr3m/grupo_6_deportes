@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+    <%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+        <main class="profile-cuadro-exterior">
+            <div class="profile-titulo-superior">Hola <%= userEncontrado.firstName %>! Bienvenido a la pagina</div>
+            
+            <div class="profile-general-data">
+                <div class="profile-fondo-box-profile">
+                    <img class="profile-image-profile" width="200vw" height="200vw" src="/images/<%= userEncontrado.profilePhoto %>" alt=""> 
+                </div>
+                <% if(locals.usuarioNoLogeado){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+                <p  class="alineadoNoLogeado"><%= usuarioNoLogeado %></p>
+                 <% } %>  
+                  
+                <div class="profile-fondo-box-data">
+                    <div class="profile-datos">Nombre:  <%= userEncontrado.firstName %> </div>
+                    <div class="profile-datos">Edad: <%= userEncontrado.age %></div>
+                    <div class="profile-datos">Email: <%= userEncontrado.email %></div>
+                    <div class="profile-datos">Numero de celular: <%= userEncontrado.numberCel %></div>
+                </div>
+
+                <div class="boton"> 
+                    <button class="bbutton" type="submit">Editar informacion</button>
+                </div>
+    
+                <div class="olvido"><a class="aa" href="/">¿Necesitas mas informacion?</a></div>
+    
+                <div class="olvido"><a class="aa" href="/">¿Neseitas ayuda?, Da click AQUI</a></div>
+            </div>
+             
+        </main>
+
+    </body>
+    <%- include('../partials/footer') %>
+</html>

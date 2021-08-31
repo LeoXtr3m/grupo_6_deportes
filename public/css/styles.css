@@ -932,4 +932,30 @@ h3{
 }
 
 
-  
+
+.header-imagen-usuario-sesion{
+    width: 17vw;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+}
+
+.header-imagen-user{
+    display: flex;
+    padding-top: .9vw;
+}
+
+.header-name-user{
+    margin: 1vw;
+    padding-top: .5vw;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.header-image-profile{
+    width: 3.5vw;
+    height: 3.5vw;
+    border-radius: 3vw;
+}

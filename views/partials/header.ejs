@@ -29,22 +29,43 @@
                     <span class="carrito">
                         <a href="/productCart"> <i class="fas fa-shopping-cart"></i></a> <!-- Carrito de mercado libre  -->
                     </span>
-                    <div class="iniciar_sesion_cuadro">
+                    
+
+                    <!-- /////////////////// SI YA INICIARON SESION SE VE ESTO   ///////////////////-->
+                    <% if (locals.isLogged == true){ %>  <!-- Si la variable "errors viene vacia, NO ENTRA"-->
+                    <div class="header-imagen-usuario-sesion">
+                        <span class="header-imagen-user"><img class="header-image-profile"src="/images/<%= locals.userLogged.profilePhoto %> " alt=""></span> 
+                        <span class="header-name-user"><a href="/userProfile"><%= locals.userLogged.firstName %>   </a> </span> 
+                        <span class="header-logout-space">
+                            <form action="/logout" method="GET" ></form>
+                             <button type="submit"  class="header-logout"  ><a href="/logout">X</a> </button>
+                            </form>
+                        </span>
+
+                    </div>
+                    <% } else {%> 
+                        <!-- /////////////////// SI NO HAN INICIADO SESION SE VE ESTO   ///////////////////-->
+                        <div class="iniciar_sesion_cuadro">
                             <span>
                                 <span>
-                                    <a href="/login"><i class="fas fa-user-circle"></i></a>       <!-- Monito de Usuario  -->
+                                    <a href="/login"><i class="fas fa-user-circle"></i></a>   
                                 </span> 
                             </span>
                             <span>
                                 <span>
-                                    <a href="/login"><h3 class="iniciar_sesios">Iniciar Sesion</h3> </a>      <!-- Monito de Usuario  -->
+                                    <a href="/login"><h3 class="iniciar_sesios">Iniciar Sesion</h3> </a>     
                                 </span>  
                                 <span>
-                                    <a href="/register"><h3 class="iniciar_registro">Registrarse</h3></a>      <!-- Monito de Usuario  -->
+                                    <a href="/register"><h3 class="iniciar_registro">Registrarse</h3></a>      
                                 </span> 
                             </span>  
-                    </div>                 
+                         </div> 
 
+
+
+
+
+                        <% } %> 
              </div>
 
         </article>

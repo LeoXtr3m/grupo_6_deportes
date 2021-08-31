@@ -41,10 +41,10 @@ const guestMiddleware = require('../Middleware/guestMiddleware');
 
 router.get('/',mainControlador.index); // Pagina de inicio
 
-router.get('/login', guestMiddleware, mainControlador.login); // Login de usuario
+router.get('/login', mainControlador.login); // Login de usuario
 router.post('/login',mainControlador.enterLogin); // Logearse de usuario
-
-router.get('/register', guestMiddleware,mainControlador.register); // Registro de usuario
+//guestMiddleware
+router.get('/register',mainControlador.register); // Registro de usuario
 router.post('/register', uploadFileUser.single('profile_photo'), validationCreateForm, mainControlador.addUser);
 
 
@@ -55,10 +55,11 @@ router.get('/products/:category?/:id?',productController.products); // Listado d
 router.get('/create',productController.create);
 router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
-
+router.get('/profile',mainControlador.profile); // Carrito de compras
 
 //router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
 router.get('/edit',productController.edit);
 
+router.get('/logout',mainControlador.logout);
 module.exports = router;

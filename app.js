@@ -3,6 +3,8 @@ const app        = express();
 const path       = require('path');
 const port       = 3000;
 const mainRouter = require('./router/main')
+const userLoggedMiddleware = require('./Middleware/userLoggedMiddleware');
+
 
 app.use(express.static('public'));//Indica que usara la carpeta Public como estatica 
 app.set('view engine', 'ejs'); // Par indicar que se usara las herramientas de ejs 
@@ -12,6 +14,8 @@ app.use(express.urlencoded({extended: false })); // Para poder obtener correctam
 /// Session 
 var session = require('express-session');
 app.use(session({secret: 'Es secreto!!!'}));
+
+app.use(userLoggedMiddleware)
 
 app.use('/',mainRouter); // Producto
 app.use('/login',mainRouter); // Usuario

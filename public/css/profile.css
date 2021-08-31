@@ -1,0 +1,73 @@
+.profile-cuadro-exterior{
+    width: 90vw;
+    height: 80vw;
+    background-color: white;
+    margin: 4vw;
+}
+
+.profile-titulo-superior{
+    width: auto;
+    box-sizing: border-box;
+    padding-top: 4vw;
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: 'Font Awesome 5 Brands';
+}
+
+.profile-general-data{
+    display: inline-block;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: auto;
+    margin-top: 2vw;
+    width: 67vw;
+    background-color: ghostwhite;
+    border-radius: 1vw;
+}
+
+
+.profile-fondo-box-profile{
+    display: inline-block;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 5vw;
+    width: 19vw;
+    background-color: white;
+}
+.profile-fondo-box-data{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    height: 24vw;
+    width: 44vw;
+    background-color: white;
+}
+
+.profile-image-profile{
+    border-radius: 3vw;
+}
+
+.profile-datos{
+    padding-top: 1.3vw;
+    font-weight: bold;
+    font-size: 1.4vw;
+    text-align: left;
+    margin-left: 4vw;
+}
+
+
+.header-logout{
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 1vw;
+    font-size: 1vw;
+    font-weight: bold;
+    background-color: rebeccapurple;
+}
+
+.header-logout-space{
+    padding-top: 1.9vw;
+    padding-left: 1vw;
+}

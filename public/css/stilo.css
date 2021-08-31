@@ -29,19 +29,16 @@ section.articulos{
 
 .des{
     display: flex;
-    justify-content:space-between;
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: nowrap;
-    height: 50px;
-    border-width: 10px;
+    height: 4vw;
 }
 
 .in{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding-top: 30px;
-    padding-right: 50px;
+    padding-top: 1vw;
     
 }
 .in img{
@@ -58,9 +55,18 @@ padding-left: 150px;
 }
 .centro{
     margin: 20px;
-    padding-bottom: 80px;
-    padding-top: -30px;
+    padding-bottom: 2vw;
 
+}
+
+
+.carro-ventas-imagen{
+    padding-left: 3vw;
+}
+
+.carro-ventas-nombre{
+    padding-left: 7vw;
+    padding-right: 7vw;
 }
 
 
