@@ -39,9 +39,22 @@ LEONCIO
 * Stop Doing (Que podemos dejar de hacer): dejar todo para los ultimos momentos por falta de tiempo 
 
 -sprint 4 
-* Start Doing (Empezar a hacer):
-* More of (Que vamos a mejorar):
-* Keep Doing (Que debemos seguir haciendo):
-* Less of (Que debemos de hacer menos):
-* Stop Doing (Que podemos dejar de hacer):
+* Start Doing (Empezar a hacer): Empezar a trabajar sobre los formularios de productos y usuarios en la pagina
+* More of (Que vamos a mejorar): dedicar mas tiempo a trabajar sobre el sprint entre semana 
+* Keep Doing (Que debemos seguir haciendo): seguir trabajando sobre los sprint sin dejarlos que se atracen las actividades 
+* Less of (Que debemos de hacer menos): dejar las actividades para despues 
+* Stop Doing (Que podemos dejar de hacer): dedicar poco tiempo a los sprint 
+
+
+-sprint 5 
+* Start Doing (Empezar a hacer): Empezar a trabajar sobre el inicio de sesion en la pagina, los cookies y session 
+* More of (Que vamos a mejorar): empezar a trabajar individualmente :( 
+* Keep Doing (Que debemos seguir haciendo): seguir trabajando sobre los sprint sin dejarlos que se atracen 
+* Less of (Que debemos de hacer menos): dejar todo para el final
+* Stop Doing (Que podemos dejar de hacer): modificar al formulario de productos y usuarios ya que quedo listo. 
+
+
+
+
+
 
