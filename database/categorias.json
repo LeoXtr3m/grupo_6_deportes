@@ -4,7 +4,7 @@
     "imgcat": "Futbol.jpg"},
 {
     "id-cat": "2",
-    "categoria": "Basquet",
+    "categoria": "Basquetbol",
     "imgcat": "basquetbol.jpg"},
 {
     "id-cat": "3",
@@ -12,5 +12,5 @@
     "imgcat": "beisbol.jpg"},
 {
     "id-cat": "4",
-    "categoria": "Futbol americano",
+    "categoria": "FutbolAmericano",
     "imgcat": "f_americano.jpg"}]

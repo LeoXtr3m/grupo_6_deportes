@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Balon Futbol Americano Tdy Sintetico Wilson",
+    "price": "600",
+    "discount": "10",
+    "description": "FIERCE MX te ofrece:  Balón de americano tamaño juvenil, cuenta con franjas de agarre que ayudan a mejorar la posición de las manos para controlar el balón. Tecnología \"Accurate Control Lacing\" que ofrece pebbles adicionales en las agujetas brindando mayor agarre en cualquier condición climática. Cámara multy-ply para una mejor retención de aire. Es un producto accesible para jugadores que inician en este deporte.  Cubierta de piel sintética Piloflex Superskin que brinda un excelente agarre Recomendado para ligas juveniles, femeniles y entrenamiento Tecnología ACL: pebbles adicionales en las agujetas para mayor control del balón. Franjas laterales que brindan mayor agarre Cámara multiply para mejor retención de aire",
+    "image": "producto-1631511459680.JPG",
+    "category": "FutbolAmericano",
+    "cantidad": 2
+  },
+  {
+    "id": 2,
+    "name": "Cleats Tenis De Fútbol Ua Spotlight Mc Para Hombre",
+    "price": "450",
+    "discount": "10",
+    "description": "SON EN NUEVOS EN SU CAJA*   Tachones Fútbol UA Spotlight MC Verdes o Naranjas para Hombre  Características principales Marca UNDER Modelo TACHON Género Hombre Otras características Estilo: Deportivo Deportes recomendados: americano Materiales del exterior: Tela Material del interior: Tela Materiales de la suela: Plástico  El UA Spotlight se ajusta y se siente como una zapatilla, por lo que puedes volar por el campo todo el día. La parte superior reforzada de tejido inteligente refuerza la resistencia y aumenta la durabilidad, todo sin añadir peso adicional.   Estamos a sus ordenes en la secciones de preguntas!!",
+    "image": "producto-1631511524785.JPG",
+    "category": "FutbolAmericano",
+    "cantidad": 2
+  },
+  {
+    "id": 3,
+    "name": "Funda Para Football Americano De Entrenamiento",
+    "price": "300",
+    "discount": "30",
+    "description": "FUNDA PARA LA PRACTICA DE FOOTBALL AMERICANO (SIN INTEGRACIONES), MATERIAL: LYCRA DE POLISTER CON GRAN ELASTICIDAD CON ESPACIO PARA COLOCAR CINTURON Y CON AGUJETA PARA FIJAR A LA CINTURA  TALLAS TALLA CHICA NIÑO (24/26) CINTURA, 52 CM DE LARGO DE CINTURA A RODILLA TALLA MEDIANA DE NIÑO (26/28) CINTURA, 54 CM DE LARGO DE CINTURA A RODILLA TALLA GRANDE DE NIÑO (28/30) CINTURA, 56 CM DE LARGO DE CINTURA A RODILLA TALLA CHICA DE ADULTO (28/30) CINTURA, 59 CM DE LARGO DE CINTURA A RODILLA TALLA MEDIANA DE ADULTO (30/32) CINTURA, 63 CM DE LARGO DE CINTURA A RODILLA TALLA GRANDE DE ADULTO (32/34) CINTURA, 70 CM DE LARGO DE CINTURA A RODILLA PARA TALLA EXTRAGRANDE (34/36) CINTURA, 73 CM DE LARGO DE CINTURA A RODILLA",
+    "image": "producto-1631511675618.JPG",
+    "category": "FutbolAmericano",
+    "cantidad": 2
+  },
+  {
+    "id": 4,
+    "name": "Balón Fútbol Americano Voit No. 7 Invictus Entrenamiento",
+    "price": "300",
+    "discount": "5",
+    "description": "Balón Fútbol Americano Voit No. 7 Invictus Entrenamiento  ----------------------------------------------------------  *Para seleccionar el color deseado debe dar click donde dice color y le mostrará los colores disponibles. Para comprar de varios colores hay que seleccionar el color deseado e ir agregándolos al carrito y al final se hace la compra de todos juntos.  ---------------------------------------------------------- > DESCRIPCIÓN:  Balón no. 7 de fútbol americano para la práctica del deporte del emparrillado, cosido a máquina, material texturizado con tratamiento de agarre, ideal para entrenamientos de categorías infantiles y uso recreativo.  ---------------------------------------------------------- > CARACTERÍSTICAS:  - Balón fútbol americano No. 7 - Colores: Azul, Plata, Negro. - Cosido a máquina - Material Texturizado - Tratamiento de agarre - Colores de equipos profesionales. - Medidas: Ancho: 15.9 cm, Alto: 27.0 cm, Profundo: 15.9 cm - Peso: 420 g.",
+    "image": "producto-1631511747257.JPG",
+    "category": "FutbolAmericano",
+    "cantidad": 2
+  }
+]

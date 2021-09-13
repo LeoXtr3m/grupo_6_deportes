@@ -16,8 +16,8 @@
                 <% for (let producto of productos) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
 
                   <article class="productos">
-                    <a href="/products/<%= producto.category %> /<%= producto.id %>">
-                         <div class="imagen_producto"><img width="80%" src="/images/<%= producto.image %>" alt=""></div>
+                    <a href="/products/<%= producto.category %>/<%= producto.id %>">
+                         <div class="imagen_producto"><img width="80%" src="/images/products/<%= producto.image %>" alt=""></div>
                              <div class="informacion_de_producto"> 
                                  <i class="fas fa-shopping-basket"></i> 
                                     <div>
@@ -40,8 +40,8 @@
         <% for (let producto of productos) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
 
             <article class="productos">
-              <a href="/products/<%= producto.category %> /<%= producto.id %>">
-                   <div class="imagen_producto"><img width="80%" src="/images/<%= producto.image %>" alt=""></div>
+              <a href="/products/<%= producto.category %>/<%= producto.id %>">
+                   <div class="imagen_producto"><img width="80%" src="/images/products/<%= producto.image %>" alt=""></div>
                        <div class="informacion_de_producto"> 
                            <i class="fas fa-shopping-basket"></i> 
                               <div>

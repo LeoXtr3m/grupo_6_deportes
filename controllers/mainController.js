@@ -24,11 +24,16 @@ const controlador = {
         res.render('../views/products/index.ejs', {categorias:categorias});
     },
     login: (req, res) => {
+       
+        console.log(req.cookies.testing)
         res.render('../views/users/login.ejs');
     },
     enterLogin: (req, res) => {
-        
-        let userEncontrado = users.find(oneUser => oneUser['email'] === req.body.correo);  // Busca el email ingresado en el JSON de usuarios, si lo encuentra, regresa todo los datos
+        //
+        //return res.send(req.body)
+        //return res.send("usuario a buscar: " + req.body.correo);
+       let userEncontrado = users.find(oneUser => oneUser['email'] === req.body.correo);  // Busca el email ingresado en el JSON de usuarios, si lo encuentra, regresa todo los datos
+        //return res.send("encontre: " + userEncontrado)
         if(userEncontrado != undefined){  // Si el usuario se encuentra en el archivo json... entra 
             let passwordCorrecto = bcryptjs.compareSync(req.body.contraseña, userEncontrado.password);
             if(passwordCorrecto){
@@ -37,7 +42,12 @@ const controlador = {
                 //return res.send(req.session.userLogged);
                 //req.locals.userLogged = userEncontrado;
                 res.locals.isLogged = true;   /// INDICA QUE SE INICIO SESION 
-                //return res.send(req.locals.userLogged)
+                 //return res.send(req.body.correo)
+                if(req.body.remember_user == "on"){
+                  //  return res.send("voy a recordar el inicio de sesion " + req.body )
+                    res.cookie('userEmail', req.body.correo, {maxAge : (1000*60)*2})  // Guarda lo que hay en req.body.correo en res.cookie.userEmail // en este caso el correo electronico de la persona que se loggea 
+                }
+
                 return res.redirect('/profile');
                // res.render('../views/users/userProfile.ejs', {userEncontrado:userEncontrado});
             }
@@ -53,6 +63,7 @@ const controlador = {
         }
     },
     register: (req, res) => {
+        res.cookie('testing', 'hola mundo!!-Entraste a registrarte', { maxAge: 1000*30})
         res.render('../views/users/register.ejs');
 //////////////////
     },
@@ -93,7 +104,7 @@ const controlador = {
 
                     fs.writeFileSync(usersFilePath, NuevoJSONDeUsers);  // escribe la informacion nueva al final del array del JSON anterior y lo actualiza
 
-                    res.redirect('/')
+                    res.redirect('/login')
 
                     }
                     else{
@@ -122,6 +133,7 @@ const controlador = {
 
     profile: (req, res) => {
 
+        console.log(req.cookies.userEmail)
         //delete userEncontrado.password;  // borrar el password por seguridad en el loggin 
          // userEncontrado =  req.session.userLogged; //almacena el usuario loggeado para que siga logeado  
         // return res.send(userEncontrado)
@@ -134,6 +146,7 @@ const controlador = {
     },
 
     logout: (req,res) => {
+        res.clearCookie("userEmail");
         req.session.destroy();
         return res.redirect('/');
     }

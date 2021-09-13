@@ -39,7 +39,7 @@ const guestMiddleware = require('../Middleware/guestMiddleware');
 
 
 
-router.get('/',mainControlador.index); // Pagina de inicio
+router.get('/' , mainControlador.index); // Pagina de inicio
 
 router.get('/login', mainControlador.login); // Login de usuario
 router.post('/login',mainControlador.enterLogin); // Logearse de usuario
@@ -48,18 +48,17 @@ router.get('/register',mainControlador.register); // Registro de usuario
 router.post('/register', uploadFileUser.single('profile_photo'), validationCreateForm, mainControlador.addUser);
 
 
-router.get('/productCart',productController.productCart); // Carrito de compras
-
+router.get('/productCart',guestMiddleware, productController.productCart); // Carrito de compras
 router.get('/products/:category?/:id?',productController.products); // Listado de productos por categoria, si lleva ID es detalle de productos por id
 
-router.get('/create',productController.create);
+router.get('/create', productController.create);
 router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
-router.get('/profile',mainControlador.profile); // Carrito de compras
+router.get('/profile',guestMiddleware, mainControlador.profile); // Carrito de compras
 
 //router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
-router.get('/edit',productController.edit);
+router.get('/edit',guestMiddleware, productController.edit);
 
 router.get('/logout',mainControlador.logout);
 module.exports = router;
