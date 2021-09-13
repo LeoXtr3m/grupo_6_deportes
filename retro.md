@@ -54,6 +54,13 @@ LEONCIO
 * Stop Doing (Que podemos dejar de hacer): modificar al formulario de productos y usuarios ya que quedo listo. 
 
 
+-sprint 6 
+* Start Doing (Empezar a hacer): Empezar a migrar la informacion de los json a la base de datos del SQL 
+* More of (Que vamos a mejorar): seguir trabajando individualmente :( 
+* Keep Doing (Que debemos seguir haciendo): seguir trabajando sobre los sprint sin atrazar actividades de sprint anteriores
+* Less of (Que debemos de hacer menos): dejar todo para el final
+* Stop Doing (Que podemos dejar de hacer): la configuracion de cookies y loggin ya que ya estan listos 
+
 
 
 
