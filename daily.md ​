@@ -20,7 +20,8 @@ Que hice hoy?
 Se encontro algun impedimento? 
 
 LEONCIO 
-27/07/2021 
+06/09/2021 
+
 -sprint 3 
 Que hice ayer?
  * Se trabajo con la programacion de las vistas, para que al seleccionar los iconos se pase a la pagina correspondiente 
@@ -29,9 +30,28 @@ Que hice hoy?
  * Se crean las vistas de formulario y editar para los productos que se presentaran en la pagina 
 Se encontro algun impedimento? 
  * Solamente la falta de tiempo por continuar con las clases a la par, los temas vistos en clase se volvieron mas complejos que limitan el tiempo para realizar estas actividades 
+
 -sprint 4 
 Que hice ayer?
  * se trabajo sobre los formularios para la creacion de productos y estudie el tema para realizar las actividades del sprint 4 
 Que hice hoy?
-
+ * Se seleccionan los campos necesarios que tendra que ingresar el usuario para registrarse, enviar los datos a un json y encriptar su contraseña.
+ * Se crean y se editan mejor los formularios para editar el producto, agregar un producto, modificar el contenido de este o eliminarlo
 Se encontro algun impedimento? 
+ * la falta de tiempo para desarrollar cada una de las actividades
+ 
+ 
+ -sprint 5 
+Que hice ayer?
+ * se trabajo sobre los formularios de los productos para poder modificarlos, eliminarlos, y agregarlos.
+ * se modifico el formulario de registro de usuario optimizandolo unicamente a lo necesario
+Que hice hoy?
+ * Se modifico el inicio de session, siendo que ahora guarda los datos en caso de tener un error 
+ * se guarda la sesion del usuario que se registro y lo deja logeado mientras se avanza en la pagina 
+ * se puede cerrar sesion y abrirla sin ningun problema y se pone la foto de perfil en el header
+ *se crea la vista del usuario que se logeo para mostrar todos sus datos 
+Se encontro algun impedimento? 
+ * la falta de mis compañeros de clase dificulto mas esta actividad, pero seguimos adelante 
+ 
+ 
+ 
