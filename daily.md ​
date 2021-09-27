@@ -47,9 +47,22 @@ Que hice ayer?
  * se modifico el formulario de registro de usuario optimizandolo unicamente a lo necesario
 Que hice hoy?
  * Se modifico el inicio de session, siendo que ahora guarda los datos en caso de tener un error 
+ * Se crean las cookies y el redireccionamiento por producto 
+ * Se crea un JSON por cada categoria 
  * se guarda la sesion del usuario que se registro y lo deja logeado mientras se avanza en la pagina 
  * se puede cerrar sesion y abrirla sin ningun problema y se pone la foto de perfil en el header
  *se crea la vista del usuario que se logeo para mostrar todos sus datos 
+Se encontro algun impedimento? 
+ * el comando ".filter" me dio muchos problemas y lo cambie en algunos lugares por ".find" la falta de mis compañeros de clase dificulto mas esta actividad, pero seguimos adelante 
+ 
+ 
+  -sprint 6
+Que hice ayer?
+ * se trabajo sobre la configuracion de cookies, session y se agregarons JSON para cada categoria, asi como la identificacion de cada uno de ellos 
+ * se agregaron los productos de cada categoria (4 por cada una) 
+Que hice hoy?
+ * estoy trabajando sobre el sprint 6 
+ 
 Se encontro algun impedimento? 
  * la falta de mis compañeros de clase dificulto mas esta actividad, pero seguimos adelante 
  
