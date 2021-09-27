@@ -27,9 +27,9 @@
 
         <% for (let categoria of categorias) { %>
             <article class="index_productos">
-                <figure class="index_imagen_producto"><a href="/products/<%= categoria.categoria%>"><p class ="imagenes-box"> <img width="80%" src="/images/<%=categoria.imgcat%>" alt=""></p></a></figure>
+                <figure class="index_imagen_producto"><a href="/products/<%= categoria.nombre%>"><p class ="imagenes-box"> <img width="80%" src="/images/<%=categoria.imagen%>" alt=""></p></a></figure>
                     <div class="index_informacion_de_producto"> 
-                            <p class= "index_descripciones"><%= categoria.categoria%></p> <br>
+                            <p class= "index_descripciones"><%= categoria.nombre%></p> <br>
                     </div>
             </article>
         <% } %>

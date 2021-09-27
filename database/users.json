@@ -28,5 +28,15 @@
     "age": "12",
     "numberCel": "6562131472",
     "profilePhoto": "Usuario-1630988632383.jpg"
+  },
+  {
+    "id": 4,
+    "firstName": "Raquel",
+    "lastName": "Gonz",
+    "email": "Raquel@gmail.com",
+    "password": "$2a$10$mMKne7GG6CjOpRopey392ObhoXiUiA.l5wFdp2vAvlmT2w4dt8.lu",
+    "age": "30",
+    "numberCel": "6564993233",
+    "profilePhoto": "Usuario-1631661713033.jpg"
   }
 ]

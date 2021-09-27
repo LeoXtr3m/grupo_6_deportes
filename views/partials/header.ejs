@@ -34,7 +34,7 @@
                     <!-- /////////////////// SI YA INICIARON SESION SE VE ESTO   ///////////////////-->
                     <% if (locals.isLogged == true){ %>  <!-- Si la variable "errors viene vacia, NO ENTRA"-->
                     <div class="header-imagen-usuario-sesion">
-                        <span class="header-imagen-user"><img class="header-image-profile"src="/images/users/<%= locals.userLogged.profilePhoto %> " alt=""></span> 
+                        <span class="header-imagen-user"><img class="header-image-profile"src="/images/users/<%= locals.userLogged.profilePhoto_id %> " alt=""></span> 
                         <span class="header-name-user"><a href="/userProfile"><%= locals.userLogged.firstName %>   </a> </span> 
                         <span class="header-logout-space">
                             <form action="/logout" method="GET" ></form>

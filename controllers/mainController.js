@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const categorias = require("../database/categorias.json");
 
+//////// Traer a SEQUELIZE
+let db = require("../database/models")
+
 ///JSON USUARIOS
 const usersFilePath = path.join(__dirname, '../database/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -20,8 +23,15 @@ const {validationResult} = require("express-validator");
 const controlador = {
 
     index: (req, res) => {
+        //return res.send("aqui estoyyyy")
+        // return res.send(categorias)
+   
+        db.Categorias.findAll()
+            .then(function(categorias2){
+                // return res.send(categorias2)
+                 res.render('../views/products/index.ejs', {categorias:categorias2});
+        })  
         
-        res.render('../views/products/index.ejs', {categorias:categorias});
     },
     login: (req, res) => {
        
@@ -31,36 +41,42 @@ const controlador = {
     enterLogin: (req, res) => {
         //
         //return res.send(req.body)
-        //return res.send("usuario a buscar: " + req.body.correo);
-       let userEncontrado = users.find(oneUser => oneUser['email'] === req.body.correo);  // Busca el email ingresado en el JSON de usuarios, si lo encuentra, regresa todo los datos
-        //return res.send("encontre: " + userEncontrado)
-        if(userEncontrado != undefined){  // Si el usuario se encuentra en el archivo json... entra 
-            let passwordCorrecto = bcryptjs.compareSync(req.body.contraseña, userEncontrado.password);
-            if(passwordCorrecto){
-                delete userEncontrado.password;  // borrar el password por seguridad en el loggin 
-                req.session.userLogged = userEncontrado;  //almacena el usuario loggeado para que siga logeado 
-                //return res.send(req.session.userLogged);
-                //req.locals.userLogged = userEncontrado;
-                res.locals.isLogged = true;   /// INDICA QUE SE INICIO SESION 
-                 //return res.send(req.body.correo)
-                if(req.body.remember_user == "on"){
-                  //  return res.send("voy a recordar el inicio de sesion " + req.body )
-                    res.cookie('userEmail', req.body.correo, {maxAge : (1000*60)*2})  // Guarda lo que hay en req.body.correo en res.cookie.userEmail // en este caso el correo electronico de la persona que se loggea 
+        db.Usuarios.findOne({     // Busca en todas las categorias el valor dado en where // NOMAS TRAE 1 VALOR 
+            where:{
+                email: req.body.correo   // busca de las categorias, los que coincidan con el nombre dado 
+            }
+        })
+            .then(function(userEncontrado){
+                if(userEncontrado != undefined){  // Si el usuario se encuentra en el archivo json... entra 
+                    let passwordCorrecto = bcryptjs.compareSync(req.body.contraseña, userEncontrado.password);
+                    if(passwordCorrecto){
+                        delete userEncontrado.password;  // borrar el password por seguridad en el loggin 
+                        req.session.userLogged = userEncontrado;  //almacena el usuario loggeado para que siga logeado 
+                        //return res.send(req.session.userLogged);
+                        //req.locals.userLogged = userEncontrado;
+                        res.locals.isLogged = true;   /// INDICA QUE SE INICIO SESION 
+                         //return res.send(req.body.correo)
+                        if(req.body.remember_user == "on"){
+                          //  return res.send("voy a recordar el inicio de sesion " + req.body )
+                            res.cookie('userEmail', req.body.correo, {maxAge : (1000*60)*2})  // Guarda lo que hay en req.body.correo en res.cookie.userEmail // en este caso el correo electronico de la persona que se loggea 
+                            res.cookie('id', userEncontrado.id , {maxAge : (1000*60)*2})  // guarda el id del usuario logeado 
+                        }
+        
+                        return res.redirect('/profile');
+                       // res.render('../views/users/userProfile.ejs', {userEncontrado:userEncontrado});
+                    }
+                    else{
+                        let passwordNoCorrecto = "El password es incorrecto";
+                        res.render('../views/users/login.ejs', {passwordNoCorrecto:passwordNoCorrecto});
+                    }
                 }
+                else{
+                   
+                    let usuarioNoLogeado = "El usuario no esta registrado";
+                    res.render('../views/users/login.ejs', {usuarioNoLogeado:usuarioNoLogeado});
+                }
+            })
 
-                return res.redirect('/profile');
-               // res.render('../views/users/userProfile.ejs', {userEncontrado:userEncontrado});
-            }
-            else{
-                let passwordNoCorrecto = "El password es incorrecto";
-                res.render('../views/users/login.ejs', {passwordNoCorrecto:passwordNoCorrecto});
-            }
-        }
-        else{
-           
-            let usuarioNoLogeado = "El usuario no esta registrado";
-            res.render('../views/users/login.ejs', {usuarioNoLogeado:usuarioNoLogeado});
-        }
     },
     register: (req, res) => {
         res.cookie('testing', 'hola mundo!!-Entraste a registrarte', { maxAge: 1000*30})
@@ -72,48 +88,37 @@ const controlador = {
         let errors = validationResult(req);
         if(errors.isEmpty()) {    /// SI HAY ALGUN ERROR, NO ENTRARA AQUI, EL ERROR LO VALIDA EN ROUTER en la variable "validationResult"
             if(req.body.password==req.body.password2){
-                    let userFound = users.find(oneUser => oneUser['email'] === req.body.email);  // Busca el email ingresado en el JSON de usuarios, si lo encuentra, regresa todo los datos
-                    if(userFound==undefined){  // Si el usuario no se encuentra en el archivo json... entra 
+                    var registrado = [];
+                    db.Usuarios.findOne({     // Busca en todas las categorias el valor dado en where 
+                        where:{
+                            email: req.body.email   // busca de las categorias, los que coincidan con el nombre dado 
+                        }
+                    })
+                        .then(function(resultado){
+                            if(resultado == undefined){
+                                console.log("es undefined LEOOO ")
+                                let passwordOld = req.body.password;
+                                let passwordNew = bcryptjs.hashSync(passwordOld,10);
+                                db.Usuarios.create({
 
-                    let passwordOld = req.body.password;
-                    let passwordNew = bcryptjs.hashSync(passwordOld,10);
-                    let user_new = {
-                        id: users.length + 1,
-                        firstName: req.body.firstName,
-                        lastName : req.body.lastName,
-                        email : req.body.email,
-                        password : passwordNew,
-                        age : req.body.age,
-                        numberCel : req.body.numberCel,
-                        profilePhoto : req.file.filename
-                    }
-                    //return res.send(user_new);
-                    let archivoUsers = fs.readFileSync(usersFilePath);  // se guarda el JSON de los productos en la variable "archivoProductos"
-                    let misUsers;    // crea la variable mis productos para guardar el JSON "archivoProductos"
-                    
-                    if(archivoUsers == ""){
-                        misUsers =[];        // no pasa nada a la variable 
-                    }
-                    else {
-                        misUsers = JSON.parse(archivoUsers);    /// Descomprime el archivo el archivo JSON a la variable misProductos
-                    }
-
-                    misUsers.push(user_new);        /// PASA LOS NUEVOS DATOS DEL PRODUCTO AL ARCHIVO NUEVO JSON "MisProductos"
-
-                    NuevoJSONDeUsers = JSON.stringify(misUsers,null,2);    // Los datos nuevos los guarda como un array en NuevoJSONProductos
-
-                    fs.writeFileSync(usersFilePath, NuevoJSONDeUsers);  // escribe la informacion nueva al final del array del JSON anterior y lo actualiza
-
-                    res.redirect('/login')
-
-                    }
-                    else{
-                       //return res.send(req.body)
-                        let usuarioLogeado = "El usuario ya esta registrado, ingrese con otro email";
-                        res.render('../views/users/register.ejs', {usuarioLogeado:usuarioLogeado, old:req.body});
-
-                    }
-
+                                    firstName: req.body.firstName,
+                                    lastName : req.body.lastName,
+                                    email : req.body.email,
+                                    password : passwordNew,
+                                    age : req.body.age,
+                                    numberCel : req.body.numberCel,
+                                    profilePhoto_id : req.file.filename // se agrega el id del usuario que esta logeado para identificar sus productos 
+                        
+                                })
+                                res.redirect('/login')
+                            }
+                            else{
+                                console.log("si tiene info LEOOO ")
+                                let usuarioLogeado = "El usuario ya esta registrado, ingrese con otro email";
+                                res.render('../views/users/register.ejs', {usuarioLogeado:usuarioLogeado, old:req.body});
+        
+                            }
+                        })
 
             }
             else{
@@ -138,7 +143,6 @@ const controlador = {
          // userEncontrado =  req.session.userLogged; //almacena el usuario loggeado para que siga logeado  
         // return res.send(userEncontrado)
       //  res.render('../views/users/userProfile.ejs', {userEncontrado:userEncontrado});
-
         return res.render('../views/users/userProfile.ejs', {
             userEncontrado: req.session.userLogged
         });

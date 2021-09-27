@@ -1,5 +1,11 @@
+const { Console } = require('console');
 const fs = require('fs');
 const path = require('path');
+//////// Traer a SEQUELIZE 
+
+let db = require("../database/models")
+
+
 //const { productos } = require('./mainController');
 
 ///JSON PRODUCTOS
@@ -7,58 +13,170 @@ const productsFilePath = path.join(__dirname, '../database/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 ///JSON PRODUTOS POR CATEGORIAS 
-const productsFilePathFutbol = path.join(__dirname, '../database/productosFutbol.json');
-const productsFutbol = JSON.parse(fs.readFileSync(productsFilePathFutbol, 'utf-8'));
-const productsFilePathBasquetbol = path.join(__dirname, '../database/productosBasquetbol.json');
-const productsBasquetbol = JSON.parse(fs.readFileSync(productsFilePathBasquetbol, 'utf-8'));
-const productsFilePathBeisbol = path.join(__dirname, '../database/productosBeisbol.json');
-const productsBeisbol = JSON.parse(fs.readFileSync(productsFilePathBeisbol, 'utf-8'));
-const productsFilePathFutbolAmericano = path.join(__dirname, '../database/productosFutbolAmericano.json');
-const productsFutbolAmericano = JSON.parse(fs.readFileSync(productsFilePathFutbolAmericano, 'utf-8'));
+
 
 /// 
-const JSONFutbol = require('../database/productosFutbol.json')
+const allProducts = require('../database/productos.json')
 
 const productControlador = {
+    createBD: (req, res) => {
+        //return res.render("aqui estoy")
+        db.Categorias.findAll()
+            .then(function(generos){
+                console.log(generos)
+               // return res.render("aqui estoy", generos)
+                //return res.render("../views/products/productCreate.ejs", {generos:generos})
+                return res.render("../views/products/productCreate.ejs", {generos:generos})
+            })  
+
+    },
+
+    guardado: (req, res) => {
+        //return res.send(req.body)
+        db.Productos.create({
+            name : req.body.nameProductoNew,
+            price : req.body.precio,
+            discount : req.body.descuento,
+            description : req.body.descripcion,
+            image : req.file.filename ,
+            category_id : req.body.deporte,
+            cantidad : req.body.cantidad,
+            usuario_id : req.session.userLogged.id, // se agrega el id del usuario que esta logeado para identificar sus productos 
+
+        })
+        res.redirect('/products')
+
+    },
+
+    list: (req, res) => {
+        
+        db.Productos.findAll()
+                .then(function(productos){
+                    console.log(productos);
+                    res.render("../views/products/productos.ejs", {productos:productos})
+                })
+
+    },
+
+    detail: (req, res) => {
+
+        if (req.params.category == undefined) { // Si no se manda la caregoria nos muestra todos los productos
+          
+            res.render('../views/products/productos.ejs', {productos:products})
+        } else {
+
+                    /// SI TODAVIA NO SE SELECCIONA UN PRODUCTO ENTRA AQUI
+                    //let categorySelect =  req.params.category; 
+                    if (req.params.id === undefined) { 
+                        db.Categorias.findOne({     // Busca en todas las categorias el valor dado en where 
+                            where:{
+                                nombre: req.params.category    // busca de las categorias, los que coincidan con el nombre dado 
+                            }
+                        })
+                            .then(function(category){
+                                       db.Productos.findAll({   // busca en la base de datos de productos el ID de la categoria buscada 
+                                            where:{
+                                                category_id: category.id  // se busca el id de categoria en el producto 
+                                            }
+                                        }) 
+                                        .then(function(producto){
+                                            console.log(producto)
+                                            let resultado
+                                            if(producto == null){
+                                             resultado = []     // si la categoria no tiene productos, no imprime nada
+                                            }
+                                            else{
+                                            resultado = producto            // convierte en array el resultado de los productos                                
+                                            }
+
+                                              res.render("../views/products/productos.ejs", {productos:resultado})
+                                        })          
+                                
+                            })
+
+
+                    }
+                
+                      /// SI YA SE SELECCIONO UN PRODUCTO ENTRA AQUI 
+                      console.log(req.params)
+                      //return res.send("aqui estoy :* 7  " + req.params )
+                      if (req.params.category >=  0) { // Si se manda la categoria y el id muestra el detalle del producto          
+                        //return res.send("aqui estoy :* 7  " + req.params )
+                        db.Productos.findByPk(req.params.category)
+                        .then(function(producto){
+                            console.log(producto)
+                            // return res.send("aqui estoy :* 2  " + productos)
+                            res.render('../views/products/productDetail.ejs', {producto:producto})
+                        }) 
+                      
+                      }
+
+        }
+
+    },
+
+    productCart: (req, res) => {
+        console.log("se imprime informacion del usuario: ")
+        console.log(req.session.userLogged) 
+        console.log("se imprime informacion del producto: ")
+        console.log("aqui...") 
+
+        db.Carrito.findAll({   // busca en la base de datos de productos el ID de la categoria buscada 
+            where:{
+                usuario_id: req.session.userLogged.id  // se busca el id de categoria en el producto 
+            }
+        }) 
+        .then(function(informacion){
+
+            if(informacion == undefined){
+                carrito = [];
+                res.render('../views/products/productCart.ejs', {carrito:carrito})
+            }
+            else{
+
+               console.log("Esto va al carrito : ")
+               var productosCarrito = []
+               for (let productosEnCarrito of informacion) {
+                db.Productos.findAll({   // busca en la base de datos de productos el ID de la categoria buscada 
+
+                })  // se busca el id de categoria en el producto 
+                    .then(function(productos){
+                        console.log("VENTAS !!!! ")
+
+                        res.render('../views/products/productCart.ejs', {productos:productos, informacion:informacion})
+                    })
+               }
+
+            }
+
+
+        }) 
+
+
+        //res.render('../views/products/productCart.ejs');
+    },
+
+
+
+
+
+
+
+
+
+
+
     products: (req, res) => {
-
-
-      //return res.send(req.params.category)
 
       if (req.params.category == undefined) { // Si no se manda la caregoria nos muestra todos los productos
           
           res.render('../views/products/productos.ejs', {productos:products})
       } else {
 
-           var categoria;
-          if (req.params.category != undefined) { // Si solo se manda la categoria y no el id muestra todos los productos de esa categoria
-              // return res.send("aqui estoy2 !! :D")
-              if(req.params.category === "Futbol"){
-                  categoria = productsFutbol;
-              }
-              else if (req.params.category === "Basquetbol"){
-                  categoria = productsBasquetbol;
-              }
-              else if (req.params.category === "Beisbol"){
-                  categoria = productsBeisbol;
-              }
-              else if (req.params.category === "FutbolAmericano"){
-                  categoria = productsFutbolAmericano;
-              }
-
-
-              var archivoProductos;
-
-              if(categoria == ""){
-                  misProductos =[];        // no pasa nada a la variable 
-              }
-              else {
-                  misProductos = categoria;    /// Descomprime el archivo el archivo JSON a la variable misProductos
-              }
                     /// SI TODAVIA NO SE SELECCIONA UN PRODUCTO ENTRA AQUI 
                   if (req.params.id === undefined) { 
                   
-                      let productosList = misProductos.filter(producto => producto.category == req.params.category); // Guardar nueva lista de productos filtrados por categoria
+                      let productosList = products.filter(producto => producto.category == req.params.category); // filtra todos los productos con la categoria dada 
                       //console.log(misProductos)
                       res.render('../views/products/productos.ejs', {
                           productos:productosList
@@ -67,12 +185,7 @@ const productControlador = {
               
                     /// SI YA SE SELECCIONO UN PRODUCTO ENTRA AQUI 
                     if (req.params.id != undefined) { // Si se manda la categoria y el id muestra el detalle del producto          
-                        
-                    //let producto = misProductos.filter(producto => producto.id == req.params.id); // Se filtra producto por ID
-                    //let producto = JSONFutbol.find(oneUser => oneUser['id'] === req.params.id); 
-                    let producto = JSONFutbol.find(producto => producto.id == req.params.id);
-                    //console.log(producto)
-                    //    return res.send("el producto " + producto + " id " + req.params.id)
+                    let producto = allProducts.find(producto => producto.id == req.params.id);  //BUSCA EL ARCHIVO CON EL ID DADO 
                     return res.render('../views/products/productDetail.ejs', {
                             'producto':producto
                         }
@@ -80,13 +193,13 @@ const productControlador = {
                     }
 
             }
-      }  
-    },
+      },  
+    
 
 
-    productCart: (req, res) => {
+    /*productCart: (req, res) => {
         res.render('../views/products/productCart.ejs');
-    },
+    },*/
 
     create: (req, res) => {
         res.render('../views/products/productCreate.ejs');

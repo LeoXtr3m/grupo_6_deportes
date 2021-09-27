@@ -3,6 +3,7 @@ const app        = express();
 const path       = require('path');
 const port       = 3000;
 const mainRouter = require('./router/main')
+const productsRouter = require('./router/products')
 const userLoggedMiddleware = require('./Middleware/userLoggedMiddleware');
 const cookies = require('cookie-parser');  // para iniciar los cookies 
 
@@ -25,10 +26,11 @@ app.use('/',mainRouter); // Producto
 app.use('/login',mainRouter); // Usuario
 app.use('/register',mainRouter); // Usuario
 app.use('/productCart', mainRouter); // Carrito de compras
-//app.use('/productDetail',mainRouter); // Detalle de producto
-app.use('/products',mainRouter); // Productos por categorias
+//app.use('/productDetail',mainRouter); // Detalle de producto //NO ESTABA ACTIVADO ANTES DEL SPRINT 6
+//app.use('/products',mainRouter); // Productos por categorias
 app.use('/create',mainRouter); // Crear un nuevo producto
 
+app.use('/products', productsRouter);
 
 app.listen(process.env.PORT || port, () => 
     console.log('Servidor corriendo en el puerto ' + port)

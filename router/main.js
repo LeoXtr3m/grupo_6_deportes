@@ -49,10 +49,10 @@ router.post('/register', uploadFileUser.single('profile_photo'), validationCreat
 
 
 router.get('/productCart',guestMiddleware, productController.productCart); // Carrito de compras
-router.get('/products/:category?/:id?',productController.products); // Listado de productos por categoria, si lleva ID es detalle de productos por id
+//router.get('/products/:category?/:id?',productController.products); // Listado de productos por categoria, si lleva ID es detalle de productos por id
 
-router.get('/create', productController.create);
-router.post('/create',uploadFile.single('imagen'),productController.newProduct);
+//router.get('/create', productController.create);
+//router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
 router.get('/profile',guestMiddleware, mainControlador.profile); // Carrito de compras
 

@@ -42,7 +42,7 @@ section.articulos{
     
 }
 .in img{
-    width: 80px;
+    width: 15vw;
     height: auto;
     border-color: black;
 }
@@ -61,12 +61,16 @@ padding-left: 150px;
 
 
 .carro-ventas-imagen{
-    padding-left: 3vw;
+    padding-left: 0vw;
 }
 
 .carro-ventas-nombre{
-    padding-left: 7vw;
-    padding-right: 7vw;
+
+    padding: 0vw;
+    font-size: 1.2em;
+    line-height: 1.5;
+    height: 7vw;
+    width: 20vw;
 }
 
 
