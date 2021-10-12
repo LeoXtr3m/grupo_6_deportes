@@ -19,7 +19,7 @@
                     </span>
 
                     <div class="Barra_de_busqueda2">
-                        <form action="/search" method="GET" class="search-form">
+                        <form class="search-form"  action="/search"  method="POST" >
                             <input type="text" name="keywords" placeholder="Buscar productos, marcas" class="search-form_input">
                             <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
                         </form>
@@ -35,7 +35,7 @@
                     <% if (locals.isLogged == true){ %>  <!-- Si la variable "errors viene vacia, NO ENTRA"-->
                     <div class="header-imagen-usuario-sesion">
                         <span class="header-imagen-user"><img class="header-image-profile"src="/images/users/<%= locals.userLogged.profilePhoto_id %> " alt=""></span> 
-                        <span class="header-name-user"><a href="/userProfile"><%= locals.userLogged.firstName %>   </a> </span> 
+                        <span class="header-name-user"><a href="/profile"><%= locals.userLogged.firstName %>   </a> </span> 
                         <span class="header-logout-space">
                             <form action="/logout" method="GET" ></form>
                              <button type="submit"  class="header-logout"  ><a href="/logout">X</a> </button>

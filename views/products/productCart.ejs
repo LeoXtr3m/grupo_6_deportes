@@ -41,11 +41,11 @@
                 <img  src="images/products/<%= productos[carrito.producto_id].image  %>" alt="Cuadro" class="cuadroVacio"> 
             </div>
             <div class="carro-ventas-nombre"><h3><p><%= productos[carrito.producto_id].name  %></p> </h3></div>
-            <div class="cantidad"><input type="number" name="Precio" placeholder="$<%= productos[carrito.producto_id].price %>"></div>
-            <div class="cantidad"><i class="fas fa-search-minus"></i><input type="number" name="Cantidad" placeholder="<%= carrito.cantidad %>"><i  class="fas fa-search-plus"></i></div>
+            <div class="cantidad"><input class="indicadorCAR" type="number" name="Precio" placeholder="$<%= productos[carrito.producto_id].price %>"></div>
+            <div class="cantidad"><i class="fas fa-search-minus"></i><input class="indicadorCAR" type="number" name="Cantidad" placeholder="<%= carrito.cantidad %>"><i  class="fas fa-search-plus"></i></div>
             
             <% totalProducto = carrito.cantidad * productos[carrito.producto_id].price %>  <!-- Se hace la multiplicacion primero, precio por cantidad-->
-            <div class="cantidad"><input type="number"name="Total" placeholder="$<%= totalProducto %>"> </div>
+            <div class="cantidad"><input class="indicadorCAR" type="number"name="Total" placeholder="$<%= totalProducto %>"> </div>
             <% total = total + totalProducto %>
         </div>
         </div>

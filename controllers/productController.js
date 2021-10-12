@@ -136,16 +136,18 @@ const productControlador = {
 
                console.log("Esto va al carrito : ")
                var productosCarrito = []
-               for (let productosEnCarrito of informacion) {
+              // for (let productosEnCarrito of informacion) {
                 db.Productos.findAll({   // busca en la base de datos de productos el ID de la categoria buscada 
 
                 })  // se busca el id de categoria en el producto 
                     .then(function(productos){
+                        console.log("informacion =  " + informacion)
+                        console.log("productos =  " + productos)
                         console.log("VENTAS !!!! ")
 
                         res.render('../views/products/productCart.ejs', {productos:productos, informacion:informacion})
                     })
-               }
+             //  }
 
             }
 
@@ -202,9 +204,13 @@ const productControlador = {
     },*/
 
     create: (req, res) => {
+        return res.render("aqui estoy ")
         res.render('../views/products/productCreate.ejs');
 
     },
+
+
+
     edit: (req, res) => {
         res.render('../views/products/productEdit.ejs');
 

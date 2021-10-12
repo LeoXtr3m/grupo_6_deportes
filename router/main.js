@@ -61,4 +61,9 @@ router.get('/profile',guestMiddleware, mainControlador.profile); // Carrito de c
 router.get('/edit',guestMiddleware, productController.edit);
 
 router.get('/logout',mainControlador.logout);
+
+// BUSCADOR
+router.post('/search',mainControlador.search); // Listado de productos por categoria, si lleva ID es detalle de productos por id
+
+
 module.exports = router;

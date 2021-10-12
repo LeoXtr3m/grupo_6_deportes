@@ -153,6 +153,38 @@ const controlador = {
         res.clearCookie("userEmail");
         req.session.destroy();
         return res.redirect('/');
+    },
+
+    search: (req, res) => {
+        console.log("AQUI ESTOY " + req.body.keywords)
+        if (req.body.keywords != undefined) { 
+            db.Productos.findAll({     // Busca en todas las categorias el valor dado en where 
+                where:{
+                    name: req.body.keywords   // busca de las categorias, los que coincidan con el nombre dado 
+                }
+            })
+                .then(function(category){
+                    if(category != undefined){
+                        res.render("../views/products/productos.ejs", {productos:category})
+                    }
+
+                    else{
+                        console.log("NO LLEVO NADA = " + category)
+                        return res.render("ENTRE NO LLEVO NADA -" + category)
+                    }
+                    
+                    
+                
+                
+                })
+            
+            }
+        else{
+             return res.redirect('/');
+        }
+        
+   
+
     }
 
 };

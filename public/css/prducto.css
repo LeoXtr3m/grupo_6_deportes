@@ -69,7 +69,15 @@
 
 input{
     text-align: center;
-    width: 13vw;
+    width: 3vw;
+    background-color: white;
+    box-shadow: 0px 0px 10px -6px #909090;
+    border-radius: 25px;
+}
+
+.indicadorCAR{
+    text-align: center;
+    width: 12vw;
     background-color: white;
     box-shadow: 0px 0px 10px -6px #909090;
     border-radius: 25px;

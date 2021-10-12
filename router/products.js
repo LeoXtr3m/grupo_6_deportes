@@ -12,7 +12,13 @@ router.post('/create',uploadFile.single('imagen'),productController.guardado); /
 /// LISTAR
 router.get('/',productController.list); // Listado de productos por categoria, si lleva ID es detalle de productos por id
 
+
+
+
 // VER POR ID 
 router.get('/:category?/:id?',productController.detail); // Listado de productos por categoria, si lleva ID es detalle de productos por id
-module.exports = router;
 
+
+
+
+module.exports = router; 
