@@ -15,8 +15,12 @@
         <form action="/products/create" method="POST"  enctype="multipart/form-data"> 
 
             <div>
-                <input class="formu_individual" type="text" name="nameProductoNew" id="nameProductoNew" placeholder="Nombre del producto" required>
+                <input class="formu_individual" type="text" name="nameProductoNew" id="nameProductoNew" placeholder="Nombre del producto" value="<%= locals.old && old.nameProductoNew ? old.nameProductoNew : '' %>" required>
             </div>
+
+            <% if(locals.errors && errors.nameProductoNew){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.nameProductoNew.msg %></p>
+             <% } %> 
 
            
             <div class="seleccion">
@@ -57,31 +61,53 @@
             <div class="form1">
                 <div>
                     <label for="precio" ></label>
-                    <input class="formu"type="text" name="precio" id="precio" placeholder="Precio" required>
+                    <input class="formu"type="text" name="precio" id="precio" placeholder="Precio" value="<%= locals.old && old.precio ? old.precio : '' %>" required>
                 </div>
     
                 <div>
                     <label for="descuento" ></label>
-                    <input class="formu"type="text" name="descuento" id="descuento" placeholder="Descuento" required>
+                    <input class="formu"type="text" name="descuento" id="descuento" placeholder="Descuento" value="<%= locals.old && old.descuento ? old.descuento : '' %>" required>
                 </div>    
 
                 <div>
                     <label for="cantidad" ></label>
-                    <input class="formu"type="text" name="cantidad" id="cantidad" placeholder="Cantidad" required>
+                    <input class="formu"type="text" name="cantidad" id="cantidad" placeholder="Cantidad" value="<%= locals.old && old.cantidad ? old.cantidad : '' %>" required>
                 </div>  
             </div>
+
+            <% if(locals.errors && errors.precio){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.precio.msg %></p>
+             <% } %> 
+
+             
+            <% if(locals.errors && errors.descuento){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.descuento.msg %></p>
+             <% } %> 
+
+             
+            <% if(locals.errors && errors.cantidad){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.cantidad.msg %></p>
+             <% } %> 
 
             <div>
                 <label for="imagen" ></label>
                 <input class="formu_individual" type="file" name="imagen" id="imagen" placeholder="Imagen del producto" required>
             </div>    
             
+            <% if(locals.errors && errors.imagen){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.imagen.msg %></p>
+             <% } %> 
 
             <div>
                 <label for="descripcion" ></label>
-                <input class="formu_description"type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required>
+                <input class="formu_description"type="text" name="descripcion" id="descripcion" placeholder="Descripcion" value="<%= locals.old && old.descripcion ? old.descripcion : '' %>" required>
             </div>    
-            
+
+            <% if(locals.errors && errors.descripcion){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.descripcion.msg %></p>
+             <% } %> 
+
+
             <div class=boton_Crear>
                 <button type="submit">Crear</button> 
             </div>

@@ -5,6 +5,8 @@ const path = require('path');
 
 let db = require("../database/models")
 
+//// MULTER VALIDATION 
+const {validationResult} = require("express-validator");
 
 //const { productos } = require('./mainController');
 
@@ -32,6 +34,11 @@ const productControlador = {
     },
 
     guardado: (req, res) => {
+        let errors = validationResult(req);
+        //let errors2 = errors.mapped()
+        //console.log(errors2)
+        //return res.send(errors2)
+        if(errors.isEmpty()) {    /// SI HAY ALGUN ERROR, NO ENTRARA AQUI, EL ERROR LO VALIDA EN ROUTER en la variable "validationResult"
         //return res.send(req.body)
         db.Productos.create({
             name : req.body.nameProductoNew,
@@ -45,6 +52,15 @@ const productControlador = {
 
         })
         res.redirect('/products')
+    }
+    else {            /// SI NO SE SUBIO UNA IMAGEN NO  ENTRA
+        db.Categorias.findAll()
+        .then(function(generos){
+            console.log(generos)
+            
+             res.render('../views/products/productCreate.ejs', {errors: errors.mapped(), old:req.body, generos:generos});   /// LOS ERRORES SE PASAN A UN ARRAY PARA DEVOLVERLOS           
+         })  
+    }
 
     },
 

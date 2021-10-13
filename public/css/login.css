@@ -106,7 +106,7 @@ form input:focus {
     display: flex;
     flex-direction: row;
     padding-top: 1vw;
-    padding-bottom: 1vw;
+    padding-bottom: 0vw;
     padding-right: 2vw;
 }
 

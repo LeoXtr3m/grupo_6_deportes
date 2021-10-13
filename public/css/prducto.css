@@ -75,6 +75,14 @@ input{
     border-radius: 25px;
 }
 
+.createProductError{
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 1.5vw;
+    padding-bottom: .5vw;
+}
+
 .indicadorCAR{
     text-align: center;
     width: 12vw;

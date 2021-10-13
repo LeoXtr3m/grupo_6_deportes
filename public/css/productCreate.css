@@ -10,6 +10,7 @@ form input.formu_description {
     box-sizing: border-box;
     border-radius: 20px;
     border: 2px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1vw;
     margin-bottom: 27px;
     margin-left: 40px;
     display: flex;
@@ -26,8 +27,9 @@ form input.formu_individual {
     box-sizing: border-box;
     border-radius: 20px;
     border: 2px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 27px;
-    margin-left: 40px;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    margin-left: 4vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -1,5 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+
+/// LIBRERIAS PARA BUSCADOR 
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op;
+
+
 const categorias = require("../database/categorias.json");
 
 //////// Traer a SEQUELIZE
@@ -86,6 +92,9 @@ const controlador = {
     addUser: (req, res) => {
 
         let errors = validationResult(req);
+        //let errors2 = errors.mapped()
+        //console.log(errors2)
+        //return res.send(errors2)
         if(errors.isEmpty()) {    /// SI HAY ALGUN ERROR, NO ENTRARA AQUI, EL ERROR LO VALIDA EN ROUTER en la variable "validationResult"
             if(req.body.password==req.body.password2){
                     var registrado = [];
@@ -129,7 +138,7 @@ const controlador = {
         else {            /// SI NO SE SUBIO UNA IMAGEN NO  ENTRA
             //let old=req.body; 
            //return res.send(req.body)
-            res.render('../views/users/register.ejs', {errors: errors.array(), old:req.body});   /// LOS ERRORES SE PASAN A UN ARRAY PARA DEVOLVERLOS           
+            res.render('../views/users/register.ejs', {errors: errors.mapped(), old:req.body});   /// LOS ERRORES SE PASAN A UN ARRAY PARA DEVOLVERLOS           
          // res.send({errors: errors.array()});
         }
 
@@ -160,7 +169,10 @@ const controlador = {
         if (req.body.keywords != undefined) { 
             db.Productos.findAll({     // Busca en todas las categorias el valor dado en where 
                 where:{
-                    name: req.body.keywords   // busca de las categorias, los que coincidan con el nombre dado 
+                    //name: req.body.keywords   // busca de las categorias, los que coincidan con el nombre dado 
+                    name:{ [Op.like]: '%'+ req.body.keywords +'%' }
+
+
                 }
             })
                 .then(function(category){

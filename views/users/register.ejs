@@ -22,13 +22,8 @@
         
 <!-- ///////////////////////////      MIDDLEWARE VALIDACION AVANZADA       ///////////////////////////////  -->
 <!--//////////////////////////////////////NO SE USA DE MOMENTO /////////////////////////////////////////////-->
-<% if (locals.errors){ %>  <!-- Si la variable "errors viene vacia, NO ENTRA"-->
 
-<% errors.forEach(error => { %>   <!-- Muestra los errores que se presentaron en el formulario, "VIENE DE ROUTERS"-->
-    <p><%= error.msg %></p>
-   
-    <% }) %> 
-<% } %>  
+
 <!--//////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
         <form class="fform" action="/register" method="POST"  enctype="multipart/form-data">
@@ -38,14 +33,20 @@
                     <label for="firstName" ></label>
                     <input class="formu" type="text" name="firstName" id="firstName" placeholder="Nombre" value="<%= locals.old && old.firstName ? old.firstName : '' %>" required>
                 </div>
-    
+
                 <div>
                     <label for="lastName" ></label>
                     <input class="formu" type="text" name="lastName" id="lastName" placeholder="Apellido" value="<%= locals.old && old.lastName ? old.lastName : '' %>"required>
                 </div>
 
             </div>
+            <% if(locals.errors && errors.firstName){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="alineadoErrorPassword"><%= errors.firstName.msg %></p>
+             <% } %>  
 
+             <% if(locals.errors && errors.lastName){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+             <p  class="alineadoErrorPassword"><%= errors.lastName.msg %></p>
+              <% } %>  
             <div>
                 <label for="email" ></label>
                 <input class="form2" type="email" name="email" id="email" placeholder="Correo" value="<%= locals.old && old.email ? old.email : '' %>" required>
@@ -71,7 +72,7 @@
             <div class="form1">
                 <div>
                     <label for="password" ></label>
-                    <input class="formu"type="password" name="password" id="password" placeholder="Contraseña" required>
+                    <input class="formu"type="password" name="password" id="password" placeholder="Contraseña"  required>
                 </div>
     
                 <div>
@@ -81,15 +82,25 @@
             </div>
             <% if(locals.paswordIncorrecto){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
             <p  class="alineadoErrorPassword"><%= paswordIncorrecto %></p>
-             <% } %>  
+             <% } %>
+
+             
+             <% if(locals.errors && errors.password){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+             <p  class="alineadoErrorPassword"><%= errors.password.msg %></p>
+              <% } %>  
 
 
 
             <h3 class="alineado">Selecciona la foto de perfil</h3>
             <div>
                 <label for="profilePhoto" ></label>
-                <input class="form2" type="file" name="profile_photo" id="profile_photo" placeholder="Foto de perfil"  required>
+                <input class="form2" type="file" name="profile_photo" id="profile_photo" placeholder="Foto de perfil" value="<%= locals.old && old.profile_photo ? old.profile_photo : '' %>" required>
             </div>
+
+            <% if(locals.errors && errors.profile_photo){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="alineadoErrorPassword"><%= errors.profile_photo.msg %></p>
+             <% } %> 
+
 
             <div class="boton"> 
                 <button class="bbutton" type="submit">Resgistrate</button>
