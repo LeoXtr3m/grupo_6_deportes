@@ -71,6 +71,9 @@ router.post('/register', uploadFileUser.single('profile_photo'), validationCreat
 
 
 router.get('/productCart',guestMiddleware, productController.productCart); // Carrito de compras
+
+//DELETE 
+router.get('/productCart/delete/:id?',productController.deleteCar);
 //router.get('/products/:category?/:id?',productController.products); // Listado de productos por categoria, si lleva ID es detalle de productos por id
 
 //router.get('/create', productController.create);
@@ -78,11 +81,17 @@ router.get('/productCart',guestMiddleware, productController.productCart); // Ca
 
 router.get('/profile',guestMiddleware, mainControlador.profile); // Carrito de compras
 
+router.get('/profile/productsOwn',guestMiddleware, mainControlador.productsOwn); 
+
 //router.post('/create',uploadFile.single('imagen'),productController.newProduct);
 
 router.get('/edit',guestMiddleware, productController.edit);
 
 router.get('/logout',mainControlador.logout);
+
+router.post('/addCar/products/:id?',guestMiddleware,productController.addCar);
+
+
 
 // BUSCADOR
 router.post('/search',mainControlador.search); // Listado de productos por categoria, si lleva ID es detalle de productos por id

@@ -18,14 +18,18 @@
 
     <body>
 
-    <main class="m2">
+    <main class="editProductMain">
         <div class="register">EDITAR PRODUCTO</div>
         
-        <form action="/" method="GET">
+        <form action="/products/edit/<%= old.id %>" method="POST"  enctype="multipart/form-data"> 
 
             <div>
-                <input class="formu_individual" type="text" name="nameProductoNew" id="nameProductoNew" placeholder="Nombre del producto" required>
+                <input class="formu_individual" type="text" name="name" id="name" placeholder="Nombre del producto" value="<%= locals.old && old.name ? old.name : '' %>" required>
             </div>
+
+            <% if(locals.errors && errors.name){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.name.msg %></p>
+             <% } %> 
 
            
             <div class="seleccion">
@@ -35,12 +39,11 @@
                     </div>
                          <div>
                             <label >
-                                <select name="OS">
+                                <select name="deporte">
                                     <optgroup label="Deportes">
-                                        <option value="1">Futbol</option> 
-                                        <option value="2">Basquetbol</option> 
-                                        <option value="3">Beisbol</option> 
-                                        <option value="4">Futbol Americano</option> 
+                                        <% for (let genero of generos) { %> 
+                                        <option value="<%= genero.id %>"><%= genero.nombre %></option> 
+                                        <% } %>
                                     </optgroup>
 
                                 </select>   
@@ -53,10 +56,8 @@
                         <h3> Tipo de producto</h3>
                     </div>  
                     <div>                
-                        <label class=selector_tipo>
+                        <label for="CategoryProductNew" class=selector_tipo>
                             <input type="radio" name="CategoryProductNew" >Vestuario
-                        </label>
-                        <label>
                             <input type="radio" name="CategoryProductNew" >Equipo
                         </label>
                     </div>  
@@ -68,28 +69,58 @@
 
             <div class="form1">
                 <div>
-                    <input class="formu"type="text" name="precio" id="precio" placeholder="Precio" required>
+                    <label for="price" ></label>
+                    <input class="formu"type="text" name="price" id="price" placeholder="price"  value="<%= locals.old && old.price ? old.price : '' %>" required>
                 </div>
     
                 <div>
-                    <input class="formu"type="text" name="descuento" id="descuento" placeholder="Descuento" required>
+                    <label for="discount" ></label>
+                    <input class="formu"type="text" name="discount" id="discount" placeholder="discount" value="<%= locals.old && old.discount ? old.discount : '' %>" required>
                 </div>    
+
+                <div>
+                    <label for="cantidad" ></label>
+                    <input class="formu"type="text" name="cantidad" id="cantidad" placeholder="Cantidad" value="<%= locals.old && old.cantidad ? old.cantidad : '' %>" required>
+                </div>  
             </div>
 
-            <div>
-                <input class="formu_individual" type="file" name="imagen" id="descuento" placeholder="Imagen del producto" required>
-            </div>    
-            
+            <% if(locals.errors && errors.price){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.price.msg %></p>
+             <% } %> 
+
+             
+            <% if(locals.errors && errors.discount){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.discount.msg %></p>
+             <% } %> 
+
+             
+            <% if(locals.errors && errors.cantidad){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.cantidad.msg %></p>
+             <% } %> 
 
             <div>
-                <input class="formu_description"type="text" name="descripcion" id="descuento" placeholder="Descripcion" required>
+                <label for="image" ></label>
+                <input class="formu_individual" type="file" name="image" id="image" placeholder="Imagen del producto" required>
             </div>    
             
+            <% if(locals.errors && errors.imagen){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.imagen.msg %></p>
+             <% } %> 
+
+            <div>
+                <label for="description" ></label>
+                <p><textarea class="formu_description"type="text" name="description" id="description" placeholder="Descripcion" value="<%= locals.old && old.description ? old.description : '' %>"  required style="width: 45vw;height: 47vw;padding: 2vw;font-size: 1.4em;font-family: auto;"></textarea></p>
+            </div>    
+
+            <% if(locals.errors && errors.description){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
+            <p  class="createProductError"><%= errors.description.msg %></p>
+             <% } %> 
+
+
             <div class=boton_Crear>
-                <button type="submit">EDITAR</button> 
+                <button class="createProductButton"  type="submit">Editar</button> 
             </div>
 
-            <div class="inicio"><a href="/login">Iniciar sesion</a></div>
         </form>
     </main>
 

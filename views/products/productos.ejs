@@ -9,39 +9,52 @@
     <%- include('../partials/header') %>
     
   <main> 
-        <ul><li class= "titulares"> Lo mejor en equipos</p></li></ul>
+        <ul><li class= "titulares"> Vestuario</p></li></ul>
 
         <section class="section_1">
         
                 <% for (let producto of productos) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
+                    <%if(producto.tipe == 1){%>
+                            <article class="productos">
+                                <% if (locals.category_send) { %> 
+                                <a href="/products/<%= category_send %>/<%= producto.id %>">
+                                <% } %> 
+                                <% if (locals.usuario) { %> 
+                                    <a href="/products/<%= usuario.firstName %>/<%= producto.id %>">
+                                <% } %> 
 
-                  <article class="productos">
-                    <a href="/products/<%= producto.category %>/<%= producto.id %>">
-                         <div class="imagen_producto"><img width="80%" src="/images/products/<%= producto.image %>" alt=""></div>
-                             <div class="informacion_de_producto"> 
-                                 <i class="fas fa-shopping-basket"></i> 
-                                    <div>
-                                        <h2 class= "precios"> $<%= producto.price %></h2>
-                                        <span class="descuentos"><%= producto.discount %>% OFF</span>
-                                    </div>
-                                     <p class= "nombre-producto"><%= producto.name %></p> <br>
-                             </div>
-                         </a>
-                    </article>
+                                    <div class="imagen_producto"><img class="imageProduct" src="/images/products/<%= producto.image %>" alt=""></div>
+                                        <div class="informacion_de_producto"> 
+                                            <i class="fas fa-shopping-basket"></i> 
+                                                <div>
+                                                    <h2 class= "precios"> $<%= producto.price %></h2>
+                                                    <span class="descuentos"><%= producto.discount %>% OFF</span>
+                                                </div>
+                                                <p class= "nombre-producto"><%= producto.name %></p> <br>
+                                        </div>
+                                    </a>
+                                </article>
+                        <%}%>
                 <% } %>
 
        </section>
 
 
 
-                    <ul><li class= "titulares"> Ofertas</li></ul>
+                    <ul><li class= "titulares"> Equipo </li></ul>
     <section class="section_2">
         
         <% for (let producto of productos) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL productsDataBase.JSON -->
-
+            <%if(producto.tipe == 2){%>
             <article class="productos">
-              <a href="/products/<%= producto.category %>/<%= producto.id %>">
-                   <div class="imagen_producto"><img width="80%" src="/images/products/<%= producto.image %>" alt=""></div>
+                <% if (locals.category_send) { %> 
+                    <a href="/products/<%= category_send %>/<%= producto.id %>">
+                    <% } %> 
+                    <% if (locals.usuario) { %> 
+                        <a href="/products/<%= usuario.firstName %>/<%= producto.id %>">
+                    <% } %> 
+
+                   <div class="imagen_producto"><img class="imageProduct" src="/images/products/<%= producto.image %>" alt=""></div>
                        <div class="informacion_de_producto"> 
                            <i class="fas fa-shopping-basket"></i> 
                               <div>
@@ -52,6 +65,7 @@
                        </div>
                    </a>
               </article>
+              <%}%>
         <% } %>
 
     </section>

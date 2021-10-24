@@ -40,7 +40,7 @@ const controlador = {
         
     },
     login: (req, res) => {
-       
+       console.log("Estoy en login s")
         console.log(req.cookies.testing)
         res.render('../views/users/login.ejs');
     },
@@ -63,9 +63,10 @@ const controlador = {
                         res.locals.isLogged = true;   /// INDICA QUE SE INICIO SESION 
                          //return res.send(req.body.correo)
                         if(req.body.remember_user == "on"){
+                            console.log("ENtre a guardar el USUARIO A LA COOKIE")
                           //  return res.send("voy a recordar el inicio de sesion " + req.body )
-                            res.cookie('userEmail', req.body.correo, {maxAge : (1000*60)*2})  // Guarda lo que hay en req.body.correo en res.cookie.userEmail // en este caso el correo electronico de la persona que se loggea 
-                            res.cookie('id', userEncontrado.id , {maxAge : (1000*60)*2})  // guarda el id del usuario logeado 
+                            res.cookie('userEmail', req.body.correo, {maxAge : (1000*60)*10})  // Guarda lo que hay en req.body.correo en res.cookie.userEmail // en este caso el correo electronico de la persona que se loggea 
+                            res.cookie('id', userEncontrado.id , {maxAge : (1000*60)*10})  // guarda el id del usuario logeado 
                         }
         
                         return res.redirect('/profile');
@@ -197,7 +198,27 @@ const controlador = {
         
    
 
-    }
+    },
+
+    productsOwn:(req,res) => {
+       console.log("Buscare la informacion del usuario : ")
+       console.log(req.cookies.id)
+       console.log("Buscare en session : ")
+       console.log(req.session.userLogged)
+       console.log("Buscare en session2 : ")
+       console.log(req.session.userLogged.id)
+        //return res.send("propiedad")
+        db.Productos.findAll({
+            where:{
+                usuario_id: req.session.userLogged.id
+            }
+        })
+                .then(function(productos){
+                    console.log(productos);
+                    let usuario = req.session.userLogged
+                    res.render("../views/products/productos.ejs", {productos:productos, usuario:usuario})
+                })
+    },
 
 };
 

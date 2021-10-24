@@ -1,31 +1,64 @@
 
 
 form input.formu_description {
-    width: 90%;
-    height: 130px;
+    width: 46vw;
+    height: 35vw;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1.5em;
     background: rgba(136, 126, 126, 0.1);
-    padding: 10px 20px;
+    padding: 1vw 2vw;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 1.3vw;
     border: 2px solid rgba(0, 0, 0, 0.1);
     margin-top: 1vw;
-    margin-bottom: 27px;
-    margin-left: 40px;
-    display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 1vw;
+    margin-left: 0vw;
     justify-content: center;
 }
 
+.createTipoSeleccion{
+
+    text-align: center;
+    width: 2vw;
+    height: 1vw;
+    font-size: 1em;
+    background-color: white;
+    box-shadow: 0px 0px 10px -6px #909090;
+    border-radius: 25px;
+}
+
+.createProductDescription{
+    display: block;
+}
+
+.createProductForm{
+    height: 80vw;
+    
+}
+
+.createProductButton{
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.6vw;
+    width: 10vw;
+    background: rgb(135 125 125);
+    border: 0;
+    box-shadow: 0 0 20px 1px rgb(0 0 0 / 4%);
+    padding: .26vw 1.04vw .26vw 1.04vw;
+    margin-top: .78vw;
+    margin-bottom: .78vw;
+    margin-left: 45vw;
+}
+
+
 
 form input.formu_individual {
-    width: 90%;
-    font-size: 14px;
+    width: 46vw;
+    font-size: 1.6em;
     background: rgba(136, 126, 126, 0.1);
-    padding: 10px 20px;
+    padding: 1vw 2vw;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 1.5vw;
     border: 2px solid rgba(0, 0, 0, 0.1);
     margin-top: 2vw;
     margin-bottom: 2vw;
@@ -53,7 +86,7 @@ form input.formu_seleccion {
 }
 
 .rectangulos{
-    padding: 35px;
+    padding: 5vw;
     display: block;
     justify-content: center;
     align-items: center;
@@ -75,5 +108,6 @@ form input.formu_seleccion {
 }
 
 .boton_Crear{
-    text-align: center;
+    text-align: right;
+    margin-right: 5vw;
 }

@@ -16,7 +16,7 @@ const {body} = require('express-validator');
     body("descripcion").isLength({min:20}).withMessage("Debes de ingresar minimo 20 caracteres"), // si el campo esta vacio se ejecuta esto
     body('imagen').custom((value, {req}) => {
       let file = req.file; 
-      let acceptedExtensions = ['.jpg', '.png', '.gif'];
+      let acceptedExtensions = ['.jpg', '.png', '.gif','.JPG', '.PNG', 'GIF'];
       if (!file) {
         throw new Error('Tienes que subir una imagen');
       }else{
@@ -39,12 +39,18 @@ router.post('/create',uploadFile.single('imagen'),validationCreateForm2, product
 /// LISTAR
 router.get('/',productController.list); // Listado de productos por categoria, si lleva ID es detalle de productos por id
 
+///router.get('/:id?',productController.list); // Listado de productos por categoria, si lleva ID es detalle de productos por id
 
 
+//EDITAR
+router.get('/edit/:id?',productController.edit); // Listado de productos por categoria, si lleva ID es detalle de productos por id
+router.post('/edit/:id?',uploadFile.single('image'),productController.update); // Listado de productos por categoria, si lleva ID es detalle de productos por id
+
+//DELETE 
+router.get('/delete/products/:id?',productController.delete);
 
 // VER POR ID 
 router.get('/:category?/:id?',productController.detail); // Listado de productos por categoria, si lleva ID es detalle de productos por id
-
 
 
 

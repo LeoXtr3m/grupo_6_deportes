@@ -23,14 +23,14 @@
         <form class="fform " action="/login" method="POST">
 
             <div>
-                <input class="formu" type="email" name="correo" id="correo" placeholder="Correo" required>
+                <input class="logginCuadros" type="email" name="correo" id="correo" placeholder="Correo" required>
             </div>
             <% if(locals.usuarioNoLogeado){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
             <p  class="alineadoNoLogeado"><%= usuarioNoLogeado %></p>
              <% } %>  
 
             <div>
-                <input class="formu"type="password" name="contraseña" id="contraseña" placeholder="Contraseña" required>
+                <input class="logginCuadros"type="password" name="contraseña" id="contraseña" placeholder="Contraseña" required>
             </div>
             <% if(locals.passwordNoCorrecto){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
             <p  class="alineadoNoLogeado"><%= passwordNoCorrecto %></p>

@@ -10,61 +10,90 @@
     
   <main> 
       <section class="s1">
-      <div class="principal">
-          <div class="imgch">
-            <img class src="/images/products/<%= producto.image %>">
-          </div>
-          
-          <div class="imgg">
-            <img class src="/images/products/<%= producto.image %>">
-          </div>
-          <div class="contenido1">
-              <p><%= producto.name %></p>
-              <p class="categoria"><%= producto.category %></p>
-              <p class="precio">$<%= producto.price %></p>
-              <br>
-              <div class="contenido2">
-                <h5>Talla</h5>
-                <br>d
-
-               <!--<div id='talla'>
-                  <input type='radio' id='CH' name='talla' value='CH' />CH
-                  <input type='radio' id='M' name='talla' value='M' />M
-                  <input type='radio' id='G' name='talla' value='G' />G 
-              </div> --> 
-
-                <div class="alinear">
-                  <select name="talla" id="talla">
-                    <option value="CH">CH</option>
-                    <option value="M" selected>M</option>
-                    <option value="G">G</option>   
-                  </select>       
+        <form action= "/addCar/products/<%= producto.id %>" method="POST">
+            <div class="principal">
+                <div class="imgch">
+                  <img class src="/images/products/<%= producto.image %>">
                 </div>
-
-                <br>
-                <div>
-                    <span>
-                      <input class="btn" type="button" value="Añadir al carrito">
-                    </span>
-                    <span>
-                      <input class="btn" type="button" value="Eliminar">
-                    </span> 
-                    <span>
-                      <input class="btn" type="button" value="Editar">
-                    </span> 
+                
+                <div class="imgg">
+                  <img class src="/images/products/<%= producto.image %>">
                 </div>
-        
+                <div class="contenido1">
+                    <p><%= producto.name %></p>
+                    <p class="categoria"><%= producto.category %></p>
+                    <p class="precio">$<%= producto.price %></p>
+                    <br>
+                    <div class="contenido2">
+                    <div class="carDescriptionLetters">
+                      <div class="carLetters">
+                        <h5>Talla</h5>
+                      </div>
+                      <div class="carLetters">
+                        <h5>Cantidad</h5>
+                      </div>
+                    
+
+                    </div>
+                      
+                    <!--<div id='talla'>
+                        <input type='radio' id='CH' name='talla' value='CH' />CH
+                        <input type='radio' id='M' name='talla' value='M' />M
+                        <input type='radio' id='G' name='talla' value='G' />G 
+                    </div> --> 
+                    <div class="carDescriptionID">
+                        <div class="alinear">
+                          <select class="descripcionTalla" name="talla" id="talla">
+                            <option value="CH">CH</option>
+                            <option value="M" selected>M</option>
+                            <option value="G">G</option>   
+                          </select>       
+                        </div>
+                        <div>
+                          <input class="carCantidad" type="number" name="cantidad" value="1" placeholder="0">
+                        </div>
+                    </div>
+                    <div>
+                      <p>Cantidad disponible = <%= producto.cantidad %></p>
+                    </div>
+                      <br>
+
+                      <% if(locals.usuario){ %> 
+                      
+                      <div class="botonPrimary">
+                        <div class="botonProduct"> 
+                          <button class="btnProduct" type="submit"><a href="/products/edit/<%= producto.id %>">Editar</a></button>
+                        </div>
+                        <div class="botonProduct"> 
+                          <button class="btnProduct" type="submit" > <a href="/products/delete/products/<%= producto.id %>"> Eliminar </a> </button>
+                        </div>
+                        <div class="botonProduct"> 
+                          <button class="btnProduct" type="submit"><a href="/products/create %>">Agregar otro</a></button>
+                        </div>
+
+                      </div>
+                      <% } else { %> 
+                      
+
+                      <div class="botonPrimary">
+                        <div class="botonProduct"> 
+                          <button class="btnProduct2" type="submit" name="comprar" value="1"> Comprar </button>
+                        </div>
+                        <div class="botonProduct"> 
+                          <button class="btnProduct2" type="submit" name="aniadir" value="1"> Añadir al carrito </button>
+                        </div>
+                      </div>
+                      <% } %>
+                  </div>
+
+                </div>
             </div>
-
-          </div>
-      </div>
-     
+          </form>
     </section>
       <section></section>
       <div class="Descripcion">
-          <h3 id="d">Descripcion <%= producto.description %> <i class="fas fa-plus-circle"></i></h3>
-         
-
+          <textarea id="d"  style="margin: 0px;width: 76vw;padding: 1.5vw;height: 30vw;font-size: 1.4em;font-family: auto;resize: none;" >Descripcion <%= producto.description %> </textarea>
+          
       </div>
     </section>
 

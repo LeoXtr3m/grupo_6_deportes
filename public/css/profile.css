@@ -5,6 +5,11 @@
     margin: 4vw;
 }
 
+.profile-botones-opciones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .profile-titulo-superior{
     width: auto;
     box-sizing: border-box;

@@ -19,8 +19,8 @@ module.exports = function(sequelize, dataTypes){
         description:{
             type: dataTypes.TEXT
         },
-        description:{
-            type: dataTypes.TEXT
+        tipe:{
+            type: dataTypes.INTEGER
         },
         image:{
             type: dataTypes.INTEGER

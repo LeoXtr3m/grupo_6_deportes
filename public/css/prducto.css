@@ -16,7 +16,7 @@
 .Descripcion{
    
     background-color: #f8f8ff;
-    margin: -105px;
+    margin: -9.4vw;
     padding: 2vw;
     margin-left: 10vw;
     margin-right: 10vw;
@@ -29,7 +29,7 @@
 
 .contenido1{
     padding-left: 11vw;
-    font-size: 21px;
+    font-size: 2em;
     justify-content: left;
     text-align: left;
     width: 37vw;
@@ -41,7 +41,7 @@
 }
 .precio{
     text-align: center;
-    font-size: 30px;
+    font-size: 1.5em;
 }
 .contenido2{
     border-top: 1px  solid #262626;
@@ -69,7 +69,9 @@
 
 input{
     text-align: center;
-    width: 3vw;
+    width: 11vw;
+    height: 4vw;
+    font-size: .7em;
     background-color: white;
     box-shadow: 0px 0px 10px -6px #909090;
     border-radius: 25px;
@@ -86,17 +88,27 @@ input{
 .indicadorCAR{
     text-align: center;
     width: 12vw;
+    height: 3vw;
+    padding: .5vw;
+    font-size: 1.4em;
     background-color: white;
     box-shadow: 0px 0px 10px -6px #909090;
-    border-radius: 25px;
+    border-radius: 8px;
 }
 
 .alinear{
     display: flex;
     margin-left: 0vw;
     margin-bottom: 4vw;
-    margin-top: -1.5vw;
+    margin-top: 0.5vw;
+    padding-left: 2vw;
     
+}
+
+
+
+.descripcionTalla{
+    font-size: 1.5vw;
 }
 .btn{
     margin-left: 2vw;
@@ -118,4 +130,88 @@ h3 {
     margin-top: 10px;
     margin-bottom: 5px;
     
+}
+
+
+.botonProduct{
+    display: flex;
+}
+
+.btnProduct{
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1vw;
+    width: 8vw;
+    background: var(--color-secundario);
+    border: 0;
+    box-shadow: 0 0 20px 1px rgb(0 0 0 / 4%);
+    padding: .26vw 1.04vw .26vw 1.04vw;
+    margin-top: .78vw;
+    margin-bottom: .78vw;
+}
+
+.btnProduct2{
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.3vw;
+    width: 12vw;
+    background: var(--color-secundario);
+    border: 0;
+    box-shadow: 0 0 20px 1px rgb(0 0 0 / 4%);
+    padding: .86vw 1.5vw .86vw 1.5vw;
+    margin-top: .78vw;
+    margin-bottom: .78vw;
+}
+
+
+.botonPrimary{
+    display: flex;
+    justify-content: space-around;
+}
+
+.carButtonDelete{
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.4vw;
+    width: 10vw;
+    background: rgb(135 125 125 / 21%);
+    border: 0;
+    box-shadow: 0 0 20px 1px rgb(0 0 0 / 4%);
+    padding: .26vw 1.04vw .26vw 1.04vw;
+    margin-top: 0.5vw;
+    margin-bottom: .5vw;
+    margin-left: 45vw;
+}
+
+.carButtonDeleteDIV{
+    text-align: right;
+}
+
+.carCantidad{
+    width: 6vw;
+    height: 3vw;
+    margin-top: 0vw;
+    margin-left: 2vw;
+}
+
+.imageProduct{
+    width: 100%;
+    height: 100%;
+    padding: 2vw;
+}
+
+.carDescriptionID{
+    display: flex;
+    justify-content: space-around;
+}
+
+.carDescriptionLetters{
+    margin-top: .5vw;
+    margin-bottom: 1vw;
+    display: flex;
+}
+
+.carLetters{
+    text-align: center;
+    width: 13vw;
 }

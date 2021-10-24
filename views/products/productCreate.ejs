@@ -9,10 +9,10 @@
 
     <body>
 
-    <main class="m2">
+    <main class="createProductMain">
         <div class="register">CREAR PRODUCTO</div>
         
-        <form action="/products/create" method="POST"  enctype="multipart/form-data"> 
+        <form class="createProductForm" action="/products/create" method="POST"  enctype="multipart/form-data"> 
 
             <div>
                 <input class="formu_individual" type="text" name="nameProductoNew" id="nameProductoNew" placeholder="Nombre del producto" value="<%= locals.old && old.nameProductoNew ? old.nameProductoNew : '' %>" required>
@@ -48,8 +48,8 @@
                     </div>  
                     <div>                
                         <label for="CategoryProductNew" class=selector_tipo>
-                            <input type="radio" name="CategoryProductNew" >Vestuario
-                            <input type="radio" name="CategoryProductNew" >Equipo
+                            <input class="createTipoSeleccion" type="radio" value="1" name="CategoryProductNew" >Vestuario
+                            <input class="createTipoSeleccion" type="radio" value="2" name="CategoryProductNew" >Equipo
                         </label>
                     </div>  
                 </span>
@@ -98,9 +98,9 @@
             <p  class="createProductError"><%= errors.imagen.msg %></p>
              <% } %> 
 
-            <div>
+            <div class="createProductDescription">
                 <label for="descripcion" ></label>
-                <input class="formu_description"type="text" name="descripcion" id="descripcion" placeholder="Descripcion" value="<%= locals.old && old.descripcion ? old.descripcion : '' %>" required>
+                <p><textarea class="formu_description"type="text" name="descripcion" id="descripcion" placeholder="Descripcion" value="<%= locals.old && old.descripcion ? old.descripcion : '' %>" required style="width: 45vw;height: 47vw;padding: 2vw;font-size: 1.4em;font-family: auto;"> </textarea></p>
             </div>    
 
             <% if(locals.errors && errors.descripcion){ %>  <!-- Si la variable "usuarioLogeado viene vacia, NO ENTRA"-->
@@ -109,10 +109,8 @@
 
 
             <div class=boton_Crear>
-                <button type="submit">Crear</button> 
+                <button class="createProductButton" type="submit">Crear</button> 
             </div>
-
-            <div class="inicio"><a href="/login">Iniciar sesion</a></div>
         </form>
     </main>
 

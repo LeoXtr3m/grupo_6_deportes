@@ -22,11 +22,20 @@
                     <div class="profile-datos">Email: <%= userEncontrado.email %></div>
                     <div class="profile-datos">Numero de celular: <%= userEncontrado.numberCel %></div>
                 </div>
-
-                <div class="boton"> 
-                    <button class="bbutton" type="submit">Editar informacion</button>
+                <div class="profile-botones-opciones">
+                    <div class="boton"> 
+                        <button class="bbutton" type="submit"><a href="/profile">Editar informacion </a></button>
+                    </div>
+                    <div class="boton"> 
+                        <button class="bbutton" type="submit"><a href="/profile/productsOwn">Productos subidos</a></button>
+                    </div>
+                    <div class="boton"> 
+                        <button class="bbutton" type="submit"><a href="/productCart">Ir al carrito de compras</a></button>
+                    </div>
+                    <div class="boton"> 
+                        <button class="bbutton" type="submit"><a href="/products/create">Crear producto</a></button>
+                    </div>
                 </div>
-    
                 <div class="olvido"><a class="aa" href="/">¿Necesitas mas informacion?</a></div>
     
                 <div class="olvido"><a class="aa" href="/">¿Neseitas ayuda?, Da click AQUI</a></div>

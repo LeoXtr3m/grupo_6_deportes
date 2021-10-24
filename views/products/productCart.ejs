@@ -22,39 +22,49 @@
     </section>
     <% let total = 0;
         let totalProducto = 0; %> 
-    <% for (let carrito of informacion) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL CARRITO -->
-       
-        <section class="detalles">
-        
-        <div class="centro">
-        <div class="des">
+    <% for (let productosAll of productos) { %> 			 <!--  SE LEEN TODOS LOS PRODUCTOS QUE ESTAN EN EL CARRITO -->
             
-            <div><h3>Articulo</h3></div>
-            <div><h3>Nombre del producto </h3></div>
-            <div><h3>Precio </h3></div>
-            <div><h3>Cantidad </h3></div>
-            <div><h3>Total</h3></div>
-       
-    </div>
-        <div class="in">
-            <div class="carro-ventas-imagen"> 
-                <img  src="images/products/<%= productos[carrito.producto_id].image  %>" alt="Cuadro" class="cuadroVacio"> 
-            </div>
-            <div class="carro-ventas-nombre"><h3><p><%= productos[carrito.producto_id].name  %></p> </h3></div>
-            <div class="cantidad"><input class="indicadorCAR" type="number" name="Precio" placeholder="$<%= productos[carrito.producto_id].price %>"></div>
-            <div class="cantidad"><i class="fas fa-search-minus"></i><input class="indicadorCAR" type="number" name="Cantidad" placeholder="<%= carrito.cantidad %>"><i  class="fas fa-search-plus"></i></div>
-            
-            <% totalProducto = carrito.cantidad * productos[carrito.producto_id].price %>  <!-- Se hace la multiplicacion primero, precio por cantidad-->
-            <div class="cantidad"><input class="indicadorCAR" type="number"name="Total" placeholder="$<%= totalProducto %>"> </div>
-            <% total = total + totalProducto %>
-        </div>
-        </div>
-        
-    </section>
+        <% for (let carrito of informacion) { %> 
+
+            <% if(productosAll.id == carrito.producto_id) { %> 
+                                <section class="detalles">
+                                
+                                <div class="centro">
+                                <div class="des">
+                                    
+                                    <div><h3>Articulo</h3></div>
+                                    <div><h3>Nombre del producto </h3></div>
+                                    <div><h3>Precio </h3></div>
+                                    <div><h3>Cantidad </h3></div>
+                                    <div><h3>Total</h3></div>
+                            
+                            </div>
+                                <div class="in">
+                                    <div class="carro-ventas-imagen"> 
+ 
+
+                                        <img  src="images/products/<%= productosAll.image  %>" alt="Cuadro" class="cuadroVacio"> 
+                                    </div>
+                                    <div class="carro-ventas-nombre"><h3><p><%= productosAll.name  %></p> </h3></div>
+                                    <div class="cantidad"><p class="indicadorCAR">$<%= productosAll.price%></p></div>
+                                    <div class="cantidad"><p class="indicadorCAR"><%= carrito.cantidad %></p></div>
+                                    
+                                    <% totalProducto = carrito.cantidad * productosAll.price %>  <!-- Se hace la multiplicacion primero, precio por cantidad-->
+                                    <div class="cantidad"><p class="indicadorCAR">$<%= totalProducto %></p> </div>
+                                    <% total = total + totalProducto %>
+                                </div>
+                                <div class=carButtonDeleteDIV>
+                                        <button class="carButtonDelete" type="submit"> <a href="/productCart/delete/<%= carrito.id %>">Eliminar</a></button> 
+                                </div>
+                            </div>
+                                
+                            </section>
+                    <% } %>
+        <% } %>
     <% } %>
     
             <div class="ultimo">
-                <h3>Resumen</h3>
+                <h5>Resumen</h5>
                 <div class="ult">
                 <div>Total</div>
                 <div><input type="text" placeholder="$<%= total%>"></div>

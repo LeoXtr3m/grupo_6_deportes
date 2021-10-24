@@ -48,7 +48,7 @@ section.articulos{
 }
 
 .precio{
-padding-left: 150px;
+    padding-left: 19vw;
 }
 .total{
     padding-right: 90px;
@@ -75,28 +75,25 @@ padding-left: 150px;
 
 
 .ultimo{
-    padding-left: 15px;
-    background-color:#f8f8ff;
-    margin: 30px;
-    width: 520px;
-    height: auto;
-    position: relative;
-    left: 400px;
+    padding-left: 2vw;
+    background-color: #f8f8ff;
+    width: 46vw;
+    height: 15vw;
     text-align: start;
-    font-size: 30px;
-    padding-bottom: 30px;
-    box-shadow: 0px 0px 10px 5px #909090 ;
+    font-size: 3em;
+    padding-bottom: 2vw;
+    box-shadow: 0px 0px 10px 5px #909090;
+    margin-bottom: 3vw;
+    margin-left: 48.5vw;
     
 }
 .ult{
     display: flex;
     align-items: flex-start;
-    justify-content: center;
     justify-content: space-between;
     padding-bottom: 30px;
     padding-left: 30px;
-    padding-right: 20;
-    text-align: center;
+    font-size: 1em;
     padding-top: 30px;
     text-align: center;
     
@@ -107,22 +104,19 @@ padding-left: 150px;
     padding-right: 50px;
 }
 .btPagar input {
-    text-align: center;
-    width: 100px;
-    height: auto;
-    padding-top: 5px;
-    padding-right: 20px;
-height: 40px;
-width: 150px;
-font-size: 20px;
-display: flex;
-justify-content: center;
-padding-bottom: 15px;
-text-align: start;
-color: black;
-background-color: gray;
-padding-left: 10px;
-opacity: 50%;
+    padding-top: .5vw;
+    padding-right: 1vw;
+    height: 4vw;
+    width: 12vw;
+    font-size: .7em;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1vw;
+    text-align: start;
+    color: black;
+    background-color: #c0b600;
+    padding-left: 1vw;
+    font-weight: bold;
 }
 .btPagar{
     padding-right: 20px;

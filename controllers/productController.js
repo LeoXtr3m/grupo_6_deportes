@@ -25,7 +25,7 @@ const productControlador = {
         //return res.render("aqui estoy")
         db.Categorias.findAll()
             .then(function(generos){
-                console.log(generos)
+               //console.log(generos)
                // return res.render("aqui estoy", generos)
                 //return res.render("../views/products/productCreate.ejs", {generos:generos})
                 return res.render("../views/products/productCreate.ejs", {generos:generos})
@@ -36,8 +36,8 @@ const productControlador = {
     guardado: (req, res) => {
         let errors = validationResult(req);
         //let errors2 = errors.mapped()
-        //console.log(errors2)
-        //return res.send(errors2)
+        //console.log(req.body)
+        //return res.send()
         if(errors.isEmpty()) {    /// SI HAY ALGUN ERROR, NO ENTRARA AQUI, EL ERROR LO VALIDA EN ROUTER en la variable "validationResult"
         //return res.send(req.body)
         db.Productos.create({
@@ -45,18 +45,20 @@ const productControlador = {
             price : req.body.precio,
             discount : req.body.descuento,
             description : req.body.descripcion,
+            tipe : req.body.CategoryProductNew,
             image : req.file.filename ,
             category_id : req.body.deporte,
             cantidad : req.body.cantidad,
             usuario_id : req.session.userLogged.id, // se agrega el id del usuario que esta logeado para identificar sus productos 
 
         })
+        console.log("aquii estoyyyy ")
         res.redirect('/products')
     }
     else {            /// SI NO SE SUBIO UNA IMAGEN NO  ENTRA
         db.Categorias.findAll()
         .then(function(generos){
-            console.log(generos)
+           // console.log(generos)
             
              res.render('../views/products/productCreate.ejs', {errors: errors.mapped(), old:req.body, generos:generos});   /// LOS ERRORES SE PASAN A UN ARRAY PARA DEVOLVERLOS           
          })  
@@ -68,19 +70,23 @@ const productControlador = {
         
         db.Productos.findAll()
                 .then(function(productos){
-                    console.log(productos);
+                   // console.log(productos);
                     res.render("../views/products/productos.ejs", {productos:productos})
                 })
 
     },
 
     detail: (req, res) => {
+        
+        let category_send = req.params.category 
+        //console.log(category_send)
+        //return res.send("aqui estoyyy en DETAIL ")
 
         if (req.params.category == undefined) { // Si no se manda la caregoria nos muestra todos los productos
-          
+            return res.send("aqui estoyyy 1")
             res.render('../views/products/productos.ejs', {productos:products})
         } else {
-
+            
                     /// SI TODAVIA NO SE SELECCIONA UN PRODUCTO ENTRA AQUI
                     //let categorySelect =  req.params.category; 
                     if (req.params.id === undefined) { 
@@ -96,7 +102,7 @@ const productControlador = {
                                             }
                                         }) 
                                         .then(function(producto){
-                                            console.log(producto)
+                                            //console.log(producto)
                                             let resultado
                                             if(producto == null){
                                              resultado = []     // si la categoria no tiene productos, no imprime nada
@@ -104,8 +110,9 @@ const productControlador = {
                                             else{
                                             resultado = producto            // convierte en array el resultado de los productos                                
                                             }
+                                             
 
-                                              res.render("../views/products/productos.ejs", {productos:resultado})
+                                              res.render("../views/products/productos.ejs", {productos:resultado,category_send:category_send})
                                         })          
                                 
                             })
@@ -114,15 +121,36 @@ const productControlador = {
                     }
                 
                       /// SI YA SE SELECCIONO UN PRODUCTO ENTRA AQUI 
-                      console.log(req.params)
+                      console.log("evaluando id  :")
+                      //console.log(req.params.id)
+
+                      console.log("ESTOY EN DETAIL")
+                       
                       //return res.send("aqui estoy :* 7  " + req.params )
-                      if (req.params.category >=  0) { // Si se manda la categoria y el id muestra el detalle del producto          
+                      if (req.params.id >=  0) { // Si se manda la categoria y el id muestra el detalle del producto          
                         //return res.send("aqui estoy :* 7  " + req.params )
-                        db.Productos.findByPk(req.params.category)
+                        //return res.send("aqui estoy ahora")
+                        db.Productos.findByPk(req.params.id)
                         .then(function(producto){
-                            console.log(producto)
-                            // return res.send("aqui estoy :* 2  " + productos)
-                            res.render('../views/products/productDetail.ejs', {producto:producto})
+                            //console.log(producto)
+                            usuario = req.session.userLogged
+                            console.log("vamos a ver que trae el usuario ")
+                            //console.log(usuario)
+                            //return res.send("aqui estoyyy en DETAIL ")
+                            //return res.send("AQUI ESTOY !!! LEO LEO LEO ")
+                            if(usuario != undefined){
+                                if(usuario.id == producto.usuario_id){
+                                    res.render('../views/products/productDetail.ejs', {producto:producto, usuario:usuario})
+                                }
+                                else{
+                                    res.render('../views/products/productDetail.ejs', {producto:producto})
+                                }
+                            }
+                            else {
+                                res.render('../views/products/productDetail.ejs', {producto:producto})
+                            }
+                            //  return res.send("aqui estoy :* 54  "  )
+                            
                         }) 
                       
                       }
@@ -132,10 +160,10 @@ const productControlador = {
     },
 
     productCart: (req, res) => {
-        console.log("se imprime informacion del usuario: ")
-        console.log(req.session.userLogged) 
-        console.log("se imprime informacion del producto: ")
-        console.log("aqui...") 
+        console.log("estoy en PRODUCTCART ")
+        //console.log(req.session.userLogged) 
+        //console.log("se imprime informacion del producto: ")
+        //console.log("aqui...") 
 
         db.Carrito.findAll({   // busca en la base de datos de productos el ID de la categoria buscada 
             where:{
@@ -144,23 +172,38 @@ const productControlador = {
         }) 
         .then(function(informacion){
 
+            console.log("informacion de carrito : ")
+            let i = 0;
+            for(let carrito2 in informacion){
+                console.log("-----------")
+                i = i+1;
+                console.log(i)
+                console.log("-----------")
+            console.log(carrito2.Carrito)
+            }
+                console.log("VAMOS A VER INFORMACION")
+                 console.log(informacion)             
+                 console.log("VAMOS A TERMINAR DE VER INFORMACION")
+
             if(informacion == undefined){
                 carrito = [];
-                res.render('../views/products/productCart.ejs', {carrito:carrito})
+                res.render('../views/products/productCart.ejs', {informacion:carrito})
             }
             else{
 
                console.log("Esto va al carrito : ")
                var productosCarrito = []
               // for (let productosEnCarrito of informacion) {
-                db.Productos.findAll({   // busca en la base de datos de productos el ID de la categoria buscada 
-
-                })  // se busca el id de categoria en el producto 
+                db.Productos.findAll()   // busca en la base de datos de productos el ID de la categoria buscada   // se busca el id de categoria en el producto 
                     .then(function(productos){
-                        console.log("informacion =  " + informacion)
-                        console.log("productos =  " + productos)
-                        console.log("VENTAS !!!! ")
 
+                       // console.log(productos)
+
+
+                        //console.log("Vamos a ver informaicon")
+                        //console.log(informacion)
+                        
+                        // return res.send("espera un poco ")
                         res.render('../views/products/productCart.ejs', {productos:productos, informacion:informacion})
                     })
              //  }
@@ -220,7 +263,7 @@ const productControlador = {
     },*/
 
     create: (req, res) => {
-        return res.render("aqui estoy ")
+       // return res.render("aqui estoy ")
         res.render('../views/products/productCreate.ejs');
 
     },
@@ -228,9 +271,56 @@ const productControlador = {
 
 
     edit: (req, res) => {
-        res.render('../views/products/productEdit.ejs');
-
+        //return res.send("ando editando ")
+        let editarProducto = db.Productos.findByPk(req.params.id)
+        let generos = db.Categorias.findAll()
+        //console.log("producto a editar")
+        //console.log(editarProducto)
+        //return res.send("hay la llevamos")
+        Promise.all([editarProducto, generos])
+            .then(function([producto, generos]){
+                //console.log(producto)
+                // return res.send("hay la llevamos 22")
+                res.render('../views/products/productEdit.ejs', {old:producto, generos:generos});
+            })
     },
+
+    update:(req, res) => {
+        console.log("AQUI ESTOY E ")
+        //console.log(req.params)
+        db.Productos.update({
+            name : req.body.name,
+            price : req.body.price,
+            discount : req.body.discount,
+            description : req.body.description,
+            image : req.file.filename ,
+            category_id : req.body.deporte,
+            cantidad : req.body.cantidad,
+            usuario_id : req.session.userLogged.id, // se agrega el id del usuario que esta logeado para identificar sus productos 
+            tipe : req.body.CategoryProductNew
+        }, {
+            where:{
+                id: req.params.id
+            }
+        })
+
+        console.log("VOY A PRODUCTOS CON LA VARIABLE YA ACTUALIZADA")
+        res.redirect('/products/')
+    
+    },
+
+    delete:(req, res) => {
+        //return res.send("aquiiiiiiiii delete")
+        console.log("estoy en delete")
+         db.Productos.destroy({
+             where:{
+                 id: req.params.id
+             }
+         })
+        res.redirect('/products')
+    
+    },
+
     newProduct: (req, res) => {
        
        //if(req.params.category == "Futbol")
@@ -288,6 +378,68 @@ const productControlador = {
 		res.redirect('/products')
 
 
+    },
+
+    addCar:(req, res) => {
+        console.log("PARAMS en ADDCAR")
+        console.log(req.params)
+        console.log("body ")
+        console.log(req.body)
+        let agrego = req.body.aniadir
+        console.log("USUARIO LOGUEADO EN ADDCAR")
+        console.log(req.session.userLogged)
+        //return("Estoy en ADDCAR")
+        
+        db.Productos.findOne({     // Busca en todas las categorias el valor dado en where 
+            where:{
+                id: req.params.id    // busca de las categorias, los que coincidan con el nombre dado 
+            }
+        })
+            .then(function(addCarProduct){
+                resultado = addCarProduct.price
+                let Total = (addCarProduct.price)*(req.body.cantidad)
+                let today = new Date().toISOString().slice(0, 10);
+
+                console.log("Estoy dentro para añadir el producto al carrito")
+                console.log(addCarProduct)
+                //return res.send("Entre a agregar el producto")
+
+                if(agrego == 1){
+                        console.log("ESTOY EN AñADIR DENTRO DEL FOR")
+                    db.Carrito.create({
+
+                        usuario_id: req.session.userLogged.id,
+                        producto_id : addCarProduct.id,
+                        fecha : today,
+                        cantidad : req.body.cantidad,
+                        total : Total,
+                        comprado : 0
+                    
+            
+                    })
+                    
+                }
+            console.log("YA VOY A SALIR")
+                //return res.send("aquiiiiiiiii estooooy 2")
+                res.redirect('/productCart')
+
+            })
+    
+    },
+    deleteCar:(req, res) => {
+        //return res.send("aquiiiiiiiii delete")
+        console.log("Params ")
+        console.log(req.params)
+        console.log("body ")
+        console.log(req.body)
+        // return res.send("ESTOY EN DELETE CAR ")
+         db.Carrito.destroy({
+             where:{
+                 id: req.params.id
+             }
+         })
+        res.redirect('/productCart')
+    
     },
 
     

@@ -22,6 +22,12 @@ app.use(cookies())
 
 app.use(userLoggedMiddleware)
 
+///ERROR 404 
+/*app.use((req,res,next) => {
+    res.status(404).render("not-found")
+})*/
+
+
 app.use('/',mainRouter); // Producto
 app.use('/login',mainRouter); // Usuario
 app.use('/register',mainRouter); // Usuario
